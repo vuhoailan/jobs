@@ -17,6 +17,11 @@
       --brand-blue: #2563eb;
       --brand-blue-soft: #eff6ff;
       --verified-green: #10b981;
+      --vibe-bg: #f0f9ff;
+      --badge-yellow: #fef3c7;
+      --badge-yellow-text: #92400e;
+      --badge-green: #d1fae5;
+      --badge-green-text: #065f46;
     }
 
     * {
@@ -72,8 +77,16 @@
     }
 
     .subtext {
+      font-size: 16px;
+      color: var(--text-main);
+      line-height: 1.6;
+      font-weight: 500;
+    }
+
+    .subtext-detail {
       font-size: 15px;
       color: var(--text-muted);
+      margin-top: 8px;
       line-height: 1.5;
     }
 
@@ -180,9 +193,38 @@
       background: rgba(255,255,255,0.1);
     }
 
+    .btn-culture {
+      background: var(--brand-blue-soft);
+      border: 1px solid var(--brand-blue);
+      color: var(--brand-blue);
+      padding: 12px 20px;
+      border-radius: 999px;
+      font-weight: 500;
+      font-size: 15px;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+      width: 100%;
+      margin-bottom: 8px;
+    }
+
+    .btn-culture:hover {
+      background: var(--brand-blue);
+      color: white;
+    }
+
     /* Filters */
     .filters-section {
       margin-bottom: 24px;
+    }
+
+    .filter-section-title {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
     .chip-row {
@@ -225,7 +267,14 @@
       color: var(--brand-blue);
     }
 
-    .chip:hover {
+    .chip.verified-only {
+      background: var(--brand-blue);
+      border-color: var(--brand-blue);
+      color: white;
+      font-weight: 500;
+    }
+
+    .chip:hover:not(.verified-only) {
       border-color: var(--brand-blue);
     }
 
@@ -277,6 +326,90 @@
       flex: 1;
     }
 
+    /* Company Header */
+    .company-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .company-logo {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 600;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .company-info {
+      flex: 1;
+    }
+
+    .company-name-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 4px;
+      flex-wrap: wrap;
+    }
+
+    .company-name {
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--text-main);
+    }
+
+    .verified-badge {
+      background: var(--verified-green);
+      color: white;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .company-stats {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+    }
+
+    .recommend-stat {
+      color: var(--verified-green);
+      font-weight: 500;
+    }
+
+    .dot {
+      color: var(--border-subtle);
+    }
+
+    .view-culture-link {
+      color: var(--brand-blue);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .view-culture-link:hover {
+      text-decoration: underline;
+    }
+
     .job-title {
       font-size: 18px;
       font-weight: 600;
@@ -292,20 +425,6 @@
       color: var(--text-muted);
       margin-bottom: 12px;
       align-items: center;
-    }
-
-    .company-name {
-      font-weight: 500;
-      color: var(--text-main);
-    }
-
-    .dot {
-      color: var(--border-subtle);
-    }
-
-    .verified {
-      color: var(--verified-green);
-      font-weight: 500;
     }
 
     .job-salary-row {
@@ -324,23 +443,49 @@
     }
 
     .salary-pill {
-      background: #fef3c7;
-      color: #92400e;
+      background: var(--badge-yellow);
+      color: var(--badge-yellow-text);
       font-weight: 500;
+    }
+
+    /* Vibe Section - HIGHLIGHTED */
+    .job-vibe-section {
+      background: var(--vibe-bg);
+      border: 1px solid #bfdbfe;
+      border-radius: 12px;
+      padding: 12px 16px;
+      margin-bottom: 12px;
+    }
+
+    .job-vibe-title {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--brand-blue);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
     }
 
     .job-vibe {
       list-style: none;
-      margin-bottom: 12px;
+      margin: 0;
       padding-left: 0;
     }
 
     .job-vibe li {
-      font-size: 14px;
-      color: var(--text-muted);
+      font-size: 15px;
+      color: var(--text-main);
       padding-left: 20px;
       position: relative;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
+      line-height: 1.5;
+    }
+
+    .job-vibe li:last-child {
+      margin-bottom: 0;
     }
 
     .job-vibe li:before {
@@ -348,6 +493,7 @@
       position: absolute;
       left: 6px;
       color: var(--brand-blue);
+      font-weight: 600;
     }
 
     .job-badges {
@@ -357,12 +503,25 @@
     }
 
     .badge {
-      background: var(--brand-blue-soft);
-      color: var(--brand-blue);
       border-radius: 999px;
       padding: 4px 10px;
       font-size: 12px;
       font-weight: 500;
+    }
+
+    .badge-blue {
+      background: var(--brand-blue-soft);
+      color: var(--brand-blue);
+    }
+
+    .badge-yellow {
+      background: var(--badge-yellow);
+      color: var(--badge-yellow-text);
+    }
+
+    .badge-green {
+      background: var(--badge-green);
+      color: var(--badge-green-text);
     }
 
     .job-actions {
@@ -514,8 +673,69 @@
 
     @media (min-width: 768px) {
       .job-hero-cta {
-        min-width: 240px;
+        min-width: 260px;
       }
+    }
+
+    /* Culture Preview */
+    .culture-preview {
+      background: var(--vibe-bg);
+      border-bottom: 1px solid #bfdbfe;
+      padding: 24px;
+    }
+
+    .culture-preview-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .culture-metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .culture-metric {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .culture-metric-label {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .culture-metric-value {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .culture-stars {
+      color: #fbbf24;
+      font-size: 16px;
+    }
+
+    .view-full-culture {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--brand-blue);
+      font-weight: 500;
+      font-size: 14px;
+      text-decoration: none;
+      margin-top: 8px;
+    }
+
+    .view-full-culture:hover {
+      text-decoration: underline;
     }
 
     .job-body {
@@ -592,10 +812,12 @@
       <div class="breadcrumb">
         <a href="#">JoyWork</a> / Việc làm
       </div>
-      <h1>Tìm công việc phù hợp trong mạng lưới JoyWork</h1>
+      <h1>Đọc văn hoá thật. Rồi mới quyết định ứng tuyển.</h1>
       <p class="subtext">
-        Các công việc được đăng bởi những doanh nghiệp đã xây dựng văn hoá rõ ràng, minh bạch. 
-        Bạn có thể xem văn hoá, cách làm việc, rồi mới quyết định ứng tuyển.
+        Tất cả công ty đã được xác minh văn hoá làm việc, đánh giá từ nhân viên thật.
+      </p>
+      <p class="subtext-detail">
+        Bạn sẽ thấy rõ: không khí làm việc thế nào, sếp ra sao, quyền lợi minh bạch không. Đọc kỹ, rồi mới apply.
       </p>
     </header>
 
@@ -618,15 +840,15 @@
 
     <!-- Filters -->
     <section class="filters-section">
+      <div class="filter-section-title">Văn hoá & môi trường</div>
       <div class="chip-row">
-        <div class="chip active">Đã xác minh văn hoá</div>
+        <div class="chip verified-only">✓ Đã xác minh văn hoá</div>
         <div class="chip">Vui vẻ & trẻ trung</div>
         <div class="chip active">Kỷ luật & tập trung</div>
         <div class="chip">Gia đình – ấm áp</div>
         <div class="chip">Start-up tăng trưởng nhanh</div>
         <div class="chip">Ổn định, ít OT</div>
         <div class="chip">Remote linh hoạt</div>
-        <div class="chip">Lương cạnh tranh</div>
       </div>
       <div class="filter-dropdowns">
         <div class="filter-dropdown">Ngành nghề: Tất cả ▾</div>
@@ -640,36 +862,61 @@
       <!-- Job 1 -->
       <article class="job-card" data-job-id="job1">
         <div class="job-main">
+          <div class="company-header">
+            <div class="company-logo" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">JT</div>
+            <div class="company-info">
+              <div class="company-name-row">
+                <span class="company-name">JoyTea Studio</span>
+                <span class="verified-badge">✓ Đã xác minh</span>
+              </div>
+              <div class="company-stats">
+                <span class="recommend-stat">92% nhân viên recommend</span>
+                <span class="dot">•</span>
+                <span>145 người đã xem</span>
+                <span class="dot">•</span>
+                <a href="#" class="view-culture-link" onclick="event.stopPropagation();">Xem văn hoá →</a>
+              </div>
+            </div>
+          </div>
+
           <h2 class="job-title">Senior Marketing Executive – Thương hiệu F&B trẻ</h2>
+          
           <div class="job-meta">
-            <span class="company-name">JoyTea Studio</span>
-            <span class="dot">•</span>
             <span>Hà Nội</span>
             <span class="dot">•</span>
             <span>Toàn thời gian</span>
             <span class="dot">•</span>
-            <span class="verified">Đã xác minh văn hoá</span>
+            <span>Đăng 3 ngày trước</span>
           </div>
+
           <div class="job-salary-row">
             <span class="salary-pill">💰 18–25 triệu/tháng</span>
             <span class="type-pill">Marketing</span>
-            <span class="posted-pill">Đăng 3 ngày trước</span>
           </div>
-          <ul class="job-vibe">
-            <li>Không khí: trẻ, vui, ít drama. Team hay mua trà sữa cho nhau khi ai đó "chiến thắng" trong campaign.</li>
-            <li>Sếp thích coaching, feedback thẳng nhưng tôn trọng. Họp 1-1 mỗi tháng, có lộ trình rõ ràng.</li>
-            <li>Team 7 người, hay đi uống trà sữa sau giờ làm. Thỉnh thoảng có team building nhỏ cuối tuần.</li>
-          </ul>
+
+          <div class="job-vibe-section">
+            <div class="job-vibe-title">
+              💬 Văn hoá thật từ nhân viên
+            </div>
+            <ul class="job-vibe">
+              <li>Không khí: trẻ, vui, ít drama. Team hay mua trà sữa cho nhau khi ai đó "chiến thắng" trong campaign.</li>
+              <li>Sếp thích coaching, feedback thẳng nhưng tôn trọng. Họp 1-1 mỗi tháng, có lộ trình rõ ràng.</li>
+              <li>Team 7 người, hay đi uống trà sữa sau giờ làm. Thỉnh thoảng có team building nhỏ cuối tuần.</li>
+            </ul>
+          </div>
+
           <div class="job-badges">
-            <span class="badge">Minh bạch lương</span>
-            <span class="badge">Không OT cuối tuần</span>
-            <span class="badge">Onboarding có mentor</span>
+            <span class="badge badge-yellow">Minh bạch lương</span>
+            <span class="badge badge-green">Không OT cuối tuần</span>
+            <span class="badge badge-blue">Onboarding có mentor</span>
           </div>
         </div>
+
         <div class="job-actions">
           <button class="btn-secondary job-detail-btn">Xem chi tiết</button>
           <button class="btn-primary job-apply-btn">Ứng tuyển</button>
         </div>
+
         <div class="job-detail-content" hidden>
           <div class="job-hero">
             <button class="overlay-close-btn">×</button>
@@ -687,17 +934,51 @@
                 </div>
               </div>
               <div class="job-hero-cta">
+                <button class="btn-culture">📊 Xem đầy đủ văn hoá công ty</button>
                 <button class="btn-primary">Ứng tuyển / Trò chuyện với HR</button>
                 <button class="btn-ghost">Lưu job</button>
               </div>
             </div>
           </div>
+
+          <div class="culture-preview">
+            <div class="culture-preview-title">🏢 Tổng quan văn hoá JoyTea Studio</div>
+            <div class="culture-metrics">
+              <div class="culture-metric">
+                <span class="culture-metric-label">Work-life balance:</span>
+                <span class="culture-stars">★★★★☆</span>
+                <span class="culture-metric-value">4/5</span>
+              </div>
+              <div class="culture-metric">
+                <span class="culture-metric-label">Cơ hội phát triển:</span>
+                <span class="culture-stars">★★★★★</span>
+                <span class="culture-metric-value">4.5/5</span>
+              </div>
+              <div class="culture-metric">
+                <span class="culture-metric-label">Minh bạch:</span>
+                <span class="culture-stars">★★★★★</span>
+                <span class="culture-metric-value">5/5</span>
+              </div>
+              <div class="culture-metric">
+                <span class="culture-metric-label">Không khí làm việc:</span>
+                <span class="culture-metric-value">Trẻ, năng động, ít drama</span>
+              </div>
+            </div>
+            <a href="#" class="view-full-culture" onclick="event.preventDefault();">Xem đầy đủ văn hoá & đánh giá từ 12 nhân viên →</a>
+          </div>
+
           <div class="job-body">
+            <section class="job-section">
+              <h3>💡 Gợi ý từ JoyWork</h3>
+              <p style="color: var(--brand-blue); font-weight: 500;">Bạn nên đọc kỹ phần "Văn hoá & môi trường làm việc" bên dưới để hiểu rõ cách làm việc thực tế tại JoyTea Studio trước khi quyết định ứng tuyển.</p>
+            </section>
+
             <section class="job-section">
               <h3>Về công ty</h3>
               <p>JoyTea Studio là thương hiệu trà sữa trẻ, với 5 cửa hàng tại Hà Nội. Chúng mình phục vụ Gen Z và những người yêu thích đồ uống healthy. Team marketing 7 người, trực thuộc Giám đốc Marketing, làm việc linh hoạt nhưng có KPI rõ ràng.</p>
               <p>Khách hàng của chúng mình chủ yếu là sinh viên và nhân viên văn phòng 22–30 tuổi. Mục tiêu 2025 là mở thêm 3 cửa hàng và tăng brand awareness qua social media.</p>
             </section>
+
             <section class="job-section">
               <h3>Văn hoá & môi trường làm việc</h3>
               <ul>
@@ -707,6 +988,7 @@
                 <li>Team building nhỏ 1 lần/quý, thường đi ăn hoặc picnic. Du lịch lớn 1 lần/năm.</li>
               </ul>
             </section>
+
             <section class="job-section">
               <h3>Mô tả công việc</h3>
               <ul>
@@ -717,6 +999,7 @@
                 <li>Nghiên cứu xu hướng F&B, đối thủ, để đưa ra insight cho chiến lược marketing.</li>
               </ul>
             </section>
+
             <section class="job-section">
               <h3>Yêu cầu</h3>
               <ul>
@@ -727,6 +1010,7 @@
                 <li>Cộng điểm: Biết thiết kế cơ bản (Canva/Figma), hoặc có kinh nghiệm làm influencer marketing.</li>
               </ul>
             </section>
+
             <section class="job-section">
               <h3>Quyền lợi</h3>
               <ul>
@@ -737,11 +1021,13 @@
                 <li>Môi trường trẻ, cơ hội thăng tiến nhanh khi công ty mở rộng.</li>
               </ul>
             </section>
+
             <section class="job-section">
               <h3>Thông tin khác</h3>
               <p>Thời gian làm việc: Thứ 2–Thứ 6 (9h–18h), thỉnh thoảng có chiến dịch cần làm thêm buổi tối hoặc cuối tuần nhưng sẽ được báo trước và có phụ cấp. Văn phòng tại quận Hoàn Kiếm, Hà Nội, gần nhiều quán ăn và tiện ích.</p>
             </section>
           </div>
+
           <div class="job-overlay-sticky">
             <span>Senior Marketing Executive · JoyTea Studio</span>
             <button class="btn-primary">Ứng tuyển ngay</button>
@@ -752,36 +1038,61 @@
       <!-- Job 2 -->
       <article class="job-card" data-job-id="job2">
         <div class="job-main">
+          <div class="company-header">
+            <div class="company-logo" style="background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);">AN</div>
+            <div class="company-info">
+              <div class="company-name-row">
+                <span class="company-name">An Nhiên Books</span>
+                <span class="verified-badge">✓ Đã xác minh</span>
+              </div>
+              <div class="company-stats">
+                <span class="recommend-stat">88% nhân viên recommend</span>
+                <span class="dot">•</span>
+                <span>89 người đã xem</span>
+                <span class="dot">•</span>
+                <a href="#" class="view-culture-link" onclick="event.stopPropagation();">Xem văn hoá →</a>
+              </div>
+            </div>
+          </div>
+
           <h2 class="job-title">Content Writer – Nhà sách độc lập yêu văn học</h2>
+          
           <div class="job-meta">
-            <span class="company-name">An Nhiên Books</span>
-            <span class="dot">•</span>
             <span>Hà Nội (Hybrid)</span>
             <span class="dot">•</span>
             <span>Toàn thời gian</span>
             <span class="dot">•</span>
-            <span class="verified">Đã xác minh văn hoá</span>
+            <span>Đăng 1 tuần trước</span>
           </div>
+
           <div class="job-salary-row">
             <span class="salary-pill">💰 12–18 triệu/tháng</span>
             <span class="type-pill">Content & Media</span>
-            <span class="posted-pill">Đăng 1 tuần trước</span>
           </div>
-          <ul class="job-vibe">
-            <li>Văn phòng nhỏ nhưng ấm cúng, có góc đọc sách riêng. Sếp là "mọt sách" thật sự, rất tôn trọng writer.</li>
-            <li>Không deadline gấp gáp, được dành thời gian nghiên cứu kỹ trước khi viết. Review 2 chiều cởi mở.</li>
-            <li>Team 4 người, thường tổ chức book club nội bộ mỗi tháng. Được giảm giá sách 30%.</li>
-          </ul>
+
+          <div class="job-vibe-section">
+            <div class="job-vibe-title">
+              💬 Văn hoá thật từ nhân viên
+            </div>
+            <ul class="job-vibe">
+              <li>Văn phòng nhỏ nhưng ấm cúng, có góc đọc sách riêng. Sếp là "mọt sách" thật sự, rất tôn trọng writer.</li>
+              <li>Không deadline gấp gáp, được dành thời gian nghiên cứu kỹ trước khi viết. Review 2 chiều cởi mở.</li>
+              <li>Team 4 người, thường tổ chức book club nội bộ mỗi tháng. Được giảm giá sách 30%.</li>
+            </ul>
+          </div>
+
           <div class="job-badges">
-            <span class="badge">Môi trường văn học</span>
-            <span class="badge">Hybrid 2 ngày WFH</span>
-            <span class="badge">Sách miễn phí</span>
+            <span class="badge badge-blue">Môi trường văn học</span>
+            <span class="badge badge-green">Hybrid 2 ngày WFH</span>
+            <span class="badge badge-yellow">Sách miễn phí</span>
           </div>
         </div>
+
         <div class="job-actions">
           <button class="btn-secondary job-detail-btn">Xem chi tiết</button>
           <button class="btn-primary job-apply-btn">Ứng tuyển</button>
         </div>
+
         <div class="job-detail-content" hidden>
           <div class="job-hero">
             <button class="overlay-close-btn">×</button>
@@ -799,17 +1110,51 @@
                 </div>
               </div>
               <div class="job-hero-cta">
+                <button class="btn-culture">📊 Xem đầy đủ văn hoá công ty</button>
                 <button class="btn-primary">Ứng tuyển / Trò chuyện với HR</button>
                 <button class="btn-ghost">Lưu job</button>
               </div>
             </div>
           </div>
+
+          <div class="culture-preview">
+            <div class="culture-preview-title">🏢 Tổng quan văn hoá An Nhiên Books</div>
+            <div class="culture-metrics">
+              <div class="culture-metric">
+                <span class="culture-metric-label">Work-life balance:</span>
+                <span class="culture-stars">★★★★★</span>
+                <span class="culture-metric-value">5/5</span>
+              </div>
+              <div class="culture-metric">
+                <span class="culture-metric-label">Cơ hội phát triển:</span>
+                <span class="culture-stars">★★★★☆</span>
+                <span class="culture-metric-value">4/5</span>
+              </div>
+              <div class="culture-metric">
+                <span class="culture-metric-label">Minh bạch:</span>
+                <span class="culture-stars">★★★★☆</span>
+                <span class="culture-metric-value">4.5/5</span>
+              </div>
+              <div class="culture-metric">
+                <span class="culture-metric-label">Không khí làm việc:</span>
+                <span class="culture-metric-value">Yên tĩnh, văn học, sâu lắng</span>
+              </div>
+            </div>
+            <a href="#" class="view-full-culture" onclick="event.preventDefault();">Xem đầy đủ văn hoá & đánh giá từ 8 nhân viên →</a>
+          </div>
+
           <div class="job-body">
+            <section class="job-section">
+              <h3>💡 Gợi ý từ JoyWork</h3>
+              <p style="color: var(--brand-blue); font-weight: 500;">Nếu bạn yêu thích văn học và muốn làm việc trong môi trường yên tĩnh, sâu lắng, hãy đọc kỹ phần văn hoá bên dưới.</p>
+            </section>
+
             <section class="job-section">
               <h3>Về công ty</h3>
               <p>An Nhiên Books là nhà sách độc lập chuyên về văn học, triết học, và sách thiếu nhi chất lượng. Chúng mình có 2 cửa hàng tại Hà Nội và 1 kênh online đang phát triển mạnh.</p>
               <p>Khách hàng của chúng mình yêu đọc sách thật sự, không chỉ mua để "decor". Chúng mình muốn xây dựng cộng đồng yêu văn học, nơi mọi người chia sẻ cảm nhận về sách.</p>
             </section>
+
             <section class="job-section">
               <h3>Văn hoá & môi trường làm việc</h3>
               <ul>
@@ -819,6 +1164,7 @@
                 <li>Book club nội bộ mỗi tháng, được giảm giá sách 30%, thỉnh thoảng có author talk riêng cho team.</li>
               </ul>
             </section>
+
             <section class="job-section">
               <h3>Mô tả công việc</h3>
               <ul>
@@ -829,6 +1175,7 @@
                 <li>Tham gia tổ chức các sự kiện văn học nhỏ (book talk, author signing) khi cần.</li>
               </ul>
             </section>
+
             <section class="job-section">
               <h3>Yêu cầu</h3>
               <ul>
@@ -839,6 +1186,7 @@
                 <li>Cộng điểm: Có blog cá nhân về sách, hoặc đã từng viết cho trang văn học/sách.</li>
               </ul>
             </section>
+
             <section class="job-section">
               <h3>Quyền lợi</h3>
               <ul>
@@ -849,11 +1197,13 @@
                 <li>Được gặp gỡ tác giả, tham gia các sự kiện văn học.</li>
               </ul>
             </section>
+
             <section class="job-section">
               <h3>Thông tin khác</h3>
               <p>Thời gian làm việc: Thứ 2–Thứ 6 (9h30–18h), 2 ngày WFH linh hoạt. Văn phòng tại Ba Đình, Hà Nội, gần Hồ Tây.</p>
             </section>
           </div>
+
           <div class="job-overlay-sticky">
             <span>Content Writer · An Nhiên Books</span>
             <button class="btn-primary">Ứng tuyển ngay</button>
@@ -864,36 +1214,61 @@
       <!-- Job 3 -->
       <article class="job-card" data-job-id="job3">
         <div class="job-main">
+          <div class="company-header">
+            <div class="company-logo" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">GL</div>
+            <div class="company-info">
+              <div class="company-name-row">
+                <span class="company-name">Gạo Lành Mart</span>
+                <span class="verified-badge">✓ Đã xác minh</span>
+              </div>
+              <div class="company-stats">
+                <span class="recommend-stat">85% nhân viên recommend</span>
+                <span class="dot">•</span>
+                <span>67 người đã xem</span>
+                <span class="dot">•</span>
+                <a href="#" class="view-culture-link" onclick="event.stopPropagation();">Xem văn hoá →</a>
+              </div>
+            </div>
+          </div>
+
           <h2 class="job-title">Nhân viên Kinh doanh B2B – Nông sản sạch</h2>
+          
           <div class="job-meta">
-            <span class="company-name">Gạo Lành Mart</span>
-            <span class="dot">•</span>
             <span>TP.HCM</span>
             <span class="dot">•</span>
             <span>Toàn thời gian</span>
             <span class="dot">•</span>
-            <span class="verified">Đã xác minh văn hoá</span>
+            <span>Đăng 5 ngày trước</span>
           </div>
+
           <div class="job-salary-row">
             <span class="salary-pill">💰 15–20 triệu + hoa hồng</span>
             <span class="type-pill">Sales B2B</span>
-            <span class="posted-pill">Đăng 5 ngày trước</span>
           </div>
-          <ul class="job-vibe">
-            <li>Công ty gia đình nhưng chuyên nghiệp, giá trị cốt lõi là "chất lượng sản phẩm". Sếp hay khuyến khích học hỏi.</li>
-            <li>Không áp lực doanh số phi lý. Target được đặt dựa trên insight thực tế thị trường.</li>
-            <li>Team sales 10 người, thân thiện, sẵn sàng chia sẻ kinh nghiệm. Có chương trình training onboard 2 tuần.</li>
-          </ul>
+
+          <div class="job-vibe-section">
+            <div class="job-vibe-title">
+              💬 Văn hoá thật từ nhân viên
+            </div>
+            <ul class="job-vibe">
+              <li>Công ty gia đình nhưng chuyên nghiệp, giá trị cốt lõi là "chất lượng sản phẩm". Sếp hay khuyến khích học hỏi.</li>
+              <li>Không áp lực doanh số phi lý. Target được đặt dựa trên insight thực tế thị trường.</li>
+              <li>Team sales 10 người, thân thiện, sẵn sàng chia sẻ kinh nghiệm. Có chương trình training onboard 2 tuần.</li>
+            </ul>
+          </div>
+
           <div class="job-badges">
-            <span class="badge">Hoa hồng hấp dẫn</span>
-            <span class="badge">Đào tạo bài bản</span>
-            <span class="badge">Sản phẩm chất lượng</span>
+            <span class="badge badge-yellow">Hoa hồng hấp dẫn</span>
+            <span class="badge badge-blue">Đào tạo bài bản</span>
+            <span class="badge badge-green">Sản phẩm chất lượng</span>
           </div>
         </div>
+
         <div class="job-actions">
           <button class="btn-secondary job-detail-btn">Xem chi tiết</button>
           <button class="btn-primary job-apply-btn">Ứng tuyển</button>
         </div>
+
         <div class="job-detail-content" hidden>
           <div class="job-hero">
             <button class="overlay-close-btn">×</button>
@@ -911,17 +1286,51 @@
                 </div>
               </div>
               <div class="job-hero-cta">
+                <button class="btn-culture">📊 Xem đầy đủ văn hoá công ty</button>
                 <button class="btn-primary">Ứng tuyển / Trò chuyện với HR</button>
                 <button class="btn-ghost">Lưu job</button>
               </div>
             </div>
           </div>
+
+          <div class="culture-preview">
+            <div class="culture-preview-title">🏢 Tổng quan văn hoá Gạo Lành Mart</div>
+            <div class="culture-metrics">
+              <div class="culture-metric">
+                <span class="culture-metric-label">Work-life balance:</span>
+                <span class="culture-stars">★★★★☆</span>
+                <span class="culture-metric-value">4/5</span>
+              </div>
+              <div class="culture-metric">
+                <span class="culture-metric-label">Cơ hội phát triển:</span>
+                <span class="culture-stars">★★★★☆</span>
+                <span class="culture-metric-value">4/5</span>
+              </div>
+              <div class="culture-metric">
+                <span class="culture-metric-label">Minh bạch:</span>
+                <span class="culture-stars">★★★★★</span>
+                <span class="culture-metric-value">5/5</span>
+              </div>
+              <div class="culture-metric">
+                <span class="culture-metric-label">Không khí làm việc:</span>
+                <span class="culture-metric-value">Gia đình, chuyên nghiệp</span>
+              </div>
+            </div>
+            <a href="#" class="view-full-culture" onclick="event.preventDefault();">Xem đầy đủ văn hoá & đánh giá từ 15 nhân viên →</a>
+          </div>
+
           <div class="job-body">
+            <section class="job-section">
+              <h3>💡 Gợi ý từ JoyWork</h3>
+              <p style="color: var(--brand-blue); font-weight: 500;">Công ty gia đình 15 năm tuổi nhưng quy trình làm việc chuyên nghiệp. Đọc kỹ phần văn hoá để hiểu cách họ đào tạo và hỗ trợ sales team.</p>
+            </section>
+
             <section class="job-section">
               <h3>Về công ty</h3>
               <p>Gạo Lành Mart chuyên cung cấp gạo sạch, rau củ organic và nông sản chất lượng cao cho khách hàng B2B (nhà hàng, khách sạn, trường học) và B2C.</p>
               <p>Chúng mình làm việc trực tiếp với nông dân, kiểm soát chất lượng từ đầu nguồn. Giá trị cốt lõi là "minh bạch nguồn gốc, chất lượng đảm bảo".</p>
             </section>
+
             <section class="job-section">
               <h3>Văn hoá & môi trường làm việc</h3>
               <ul>
@@ -931,6 +1340,7 @@
                 <li>Thưởng hoa hồng rõ ràng, trả đúng hạn. Review lương 1 lần/năm.</li>
               </ul>
             </section>
+
             <section class="job-section">
               <h3>Mô tả công việc</h3>
               <ul>
@@ -941,6 +1351,7 @@
                 <li>Báo cáo doanh số hàng tuần, phối hợp với team logistics để giao hàng đúng hạn.</li>
               </ul>
             </section>
+
             <section class="job-section">
               <h3>Yêu cầu</h3>
               <ul>
@@ -951,6 +1362,7 @@
                 <li>Cộng điểm: Có mối quan hệ sẵn với các nhà hàng/khách sạn tại TP.HCM.</li>
               </ul>
             </section>
+
             <section class="job-section">
               <h3>Quyền lợi</h3>
               <ul>
@@ -961,11 +1373,13 @@
                 <li>Được đào tạo bài bản về sản phẩm và kỹ năng bán hàng.</li>
               </ul>
             </section>
+
             <section class="job-section">
               <h3>Thông tin khác</h3>
               <p>Thời gian làm việc: Thứ 2–Thứ 6 (8h30–17h30), Thứ 7 (8h30–12h). Văn phòng tại quận Bình Thạnh, TP.HCM. Công việc yêu cầu di chuyển gặp khách hàng, công ty hỗ trợ xăng xe.</p>
             </section>
           </div>
+
           <div class="job-overlay-sticky">
             <span>Nhân viên Kinh doanh B2B · Gạo Lành Mart</span>
             <button class="btn-primary">Ứng tuyển ngay</button>
@@ -976,36 +1390,61 @@
       <!-- Job 4 -->
       <article class="job-card" data-job-id="job4">
         <div class="job-main">
+          <div class="company-header">
+            <div class="company-logo" style="background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);">CB</div>
+            <div class="company-info">
+              <div class="company-name-row">
+                <span class="company-name">CloudBase Tech</span>
+                <span class="verified-badge">✓ Đã xác minh</span>
+              </div>
+              <div class="company-stats">
+                <span class="recommend-stat">95% nhân viên recommend</span>
+                <span class="dot">•</span>
+                <span>203 người đã xem</span>
+                <span class="dot">•</span>
+                <a href="#" class="view-culture-link" onclick="event.stopPropagation();">Xem văn hoá →</a>
+              </div>
+            </div>
+          </div>
+
           <h2 class="job-title">Backend Developer (Node.js) – SaaS Platform</h2>
+          
           <div class="job-meta">
-            <span class="company-name">CloudBase Tech</span>
-            <span class="dot">•</span>
             <span>Remote (VN)</span>
             <span class="dot">•</span>
             <span>Toàn thời gian</span>
             <span class="dot">•</span>
-            <span class="verified">Đã xác minh văn hoá</span>
+            <span>Đăng 2 ngày trước</span>
           </div>
+
           <div class="job-salary-row">
             <span class="salary-pill">💰 25–35 triệu/tháng</span>
             <span class="type-pill">Engineering</span>
-            <span class="posted-pill">Đăng 2 ngày trước</span>
           </div>
-          <ul class="job-vibe">
-            <li>Full remote, làm việc async. Daily standup 15 phút qua Slack. Tài liệu rõ ràng, ít meeting vô bổ.</li>
-            <li>Team tech 12 người, senior nhiều, sẵn sàng review code chi tiết và mentor junior. Code quality là ưu tiên hàng đầu.</li>
-            <li>Công nghệ hiện đại: Node.js, TypeScript, PostgreSQL, Redis, Docker. Được làm việc với architect có kinh nghiệm.</li>
-          </ul>
+
+          <div class="job-vibe-section">
+            <div class="job-vibe-title">
+              💬 Văn hoá thật từ nhân viên
+            </div>
+            <ul class="job-vibe">
+              <li>Full remote, làm việc async. Daily standup 15 phút qua Slack. Tài liệu rõ ràng, ít meeting vô bổ.</li>
+              <li>Team tech 12 người, senior nhiều, sẵn sàng review code chi tiết và mentor junior. Code quality là ưu tiên hàng đầu.</li>
+              <li>Công nghệ hiện đại: Node.js, TypeScript, PostgreSQL, Redis, Docker. Được làm việc với architect có kinh nghiệm.</li>
+            </ul>
+          </div>
+
           <div class="job-badges">
-            <span class="badge">Full remote</span>
-            <span class="badge">Tech stack hiện đại</span>
-            <span class="badge">Code review nghiêm túc</span>
+            <span class="badge badge-green">Full remote</span>
+            <span class="badge badge-blue">Tech stack hiện đại</span>
+            <span class="badge badge-yellow">Code review nghiêm túc</span>
           </div>
         </div>
+
         <div class="job-actions">
           <button class="btn-secondary job-detail-btn">Xem chi tiết</button>
           <button class="btn-primary job-apply-btn">Ứng tuyển</button>
         </div>
+
         <div class="job-detail-content" hidden>
           <div class="job-hero">
             <button class="overlay-close-btn">×</button>
@@ -1023,17 +1462,51 @@
                 </div>
               </div>
               <div class="job-hero-cta">
+                <button class="btn-culture">📊 Xem đầy đủ văn hoá công ty</button>
                 <button class="btn-primary">Ứng tuyển / Trò chuyện với HR</button>
                 <button class="btn-ghost">Lưu job</button>
               </div>
             </div>
           </div>
+
+          <div class="culture-preview">
+            <div class="culture-preview-title">🏢 Tổng quan văn hoá CloudBase Tech</div>
+            <div class="culture-metrics">
+              <div class="culture-metric">
+                <span class="culture-metric-label">Work-life balance:</span>
+                <span class="culture-stars">★★★★★</span>
+                <span class="culture-metric-value">5/5</span>
+              </div>
+              <div class="culture-metric">
+                <span class="culture-metric-label">Cơ hội phát triển:</span>
+                <span class="culture-stars">★★★★★</span>
+                <span class="culture-metric-value">4.5/5</span>
+              </div>
+              <div class="culture-metric">
+                <span class="culture-metric-label">Minh bạch:</span>
+                <span class="culture-stars">★★★★★</span>
+                <span class="culture-metric-value">5/5</span>
+              </div>
+              <div class="culture-metric">
+                <span class="culture-metric-label">Không khí làm việc:</span>
+                <span class="culture-metric-value">Remote-first, async, focus</span>
+              </div>
+            </div>
+            <a href="#" class="view-full-culture" onclick="event.preventDefault();">Xem đầy đủ văn hoá & đánh giá từ 18 nhân viên →</a>
+          </div>
+
           <div class="job-body">
+            <section class="job-section">
+              <h3>💡 Gợi ý từ JoyWork</h3>
+              <p style="color: var(--brand-blue); font-weight: 500;">Công ty tech remote-first với văn hoá async và code quality cao. Rất phù hợp với developer thích làm việc độc lập, có tư duy kỹ thuật tốt.</p>
+            </section>
+
             <section class="job-section">
               <h3>Về công ty</h3>
               <p>CloudBase Tech phát triển SaaS platform giúp các doanh nghiệp SME quản lý dữ liệu khách hàng và automation marketing. Sản phẩm đang được 200+ doanh nghiệp tại Việt Nam và SEA sử dụng.</p>
               <p>Đội ngũ 30 người, trong đó 12 người là engineering team. Văn hoá remote-first, đội ngũ phân tán tại Hà Nội, TP.HCM, Đà Nẵng.</p>
             </section>
+
             <section class="job-section">
               <h3>Văn hoá & môi trường làm việc</h3>
               <ul>
@@ -1043,6 +1516,7 @@
                 <li>Giờ làm việc linh hoạt, miễn đảm bảo overlap 3–4 tiếng với team (thường 9h–12h hoặc 14h–17h).</li>
               </ul>
             </section>
+
             <section class="job-section">
               <h3>Mô tả công việc</h3>
               <ul>
@@ -1054,6 +1528,7 @@
                 <li>Tham gia code review, đóng góp vào việc cải thiện code quality và architecture.</li>
               </ul>
             </section>
+
             <section class="job-section">
               <h3>Yêu cầu</h3>
               <ul>
@@ -1065,6 +1540,7 @@
                 <li>Cộng điểm: Kinh nghiệm với Redis, message queue (RabbitMQ/Kafka), microservices, hoặc cloud platform (AWS/GCP).</li>
               </ul>
             </section>
+
             <section class="job-section">
               <h3>Quyền lợi</h3>
               <ul>
@@ -1075,11 +1551,13 @@
                 <li>Budget cho việc học online courses, technical books.</li>
               </ul>
             </section>
+
             <section class="job-section">
               <h3>Thông tin khác</h3>
               <p>Làm việc hoàn toàn remote, không cần đến văn phòng. Giờ làm linh hoạt nhưng cần overlap 3–4 tiếng với team (thường 9h–12h). Team gathering 1 lần/quý tại Hà Nội hoặc TP.HCM.</p>
             </section>
           </div>
+
           <div class="job-overlay-sticky">
             <span>Backend Developer (Node.js) · CloudBase Tech</span>
             <button class="btn-primary">Ứng tuyển ngay</button>
@@ -1090,36 +1568,61 @@
       <!-- Job 5 -->
       <article class="job-card" data-job-id="job5">
         <div class="job-main">
+          <div class="company-header">
+            <div class="company-logo" style="background: linear-gradient(135deg, #ec4899 0%, #be185d 100%);">NM</div>
+            <div class="company-info">
+              <div class="company-name-row">
+                <span class="company-name">Nhà Mơ Education</span>
+                <span class="verified-badge">✓ Đã xác minh</span>
+              </div>
+              <div class="company-stats">
+                <span class="recommend-stat">90% nhân viên recommend</span>
+                <span class="dot">•</span>
+                <span>112 người đã xem</span>
+                <span class="dot">•</span>
+                <a href="#" class="view-culture-link" onclick="event.stopPropagation();">Xem văn hoá →</a>
+              </div>
+            </div>
+          </div>
+
           <h2 class="job-title">Giáo viên Toán – THCS (Trung học cơ sở)</h2>
+          
           <div class="job-meta">
-            <span class="company-name">Nhà Mơ Education</span>
-            <span class="dot">•</span>
             <span>Hà Nội</span>
             <span class="dot">•</span>
             <span>Toàn thời gian</span>
             <span class="dot">•</span>
-            <span class="verified">Đã xác minh văn hoá</span>
+            <span>Đăng 1 tuần trước</span>
           </div>
+
           <div class="job-salary-row">
             <span class="salary-pill">💰 15–22 triệu/tháng</span>
             <span class="type-pill">Giáo dục</span>
-            <span class="posted-pill">Đăng 1 tuần trước</span>
           </div>
-          <ul class="job-vibe">
-            <li>Trường tư thục nhỏ, tập trung phát triển tư duy hơn là học vẹt. Học sinh 20–25 em/lớp, được quan tâm kỹ.</li>
-            <li>Hiệu trưởng coi trọng giáo viên, luôn lắng nghe ý kiến. Không áp lực thành tích ảo, chỉ cần trẻ học được.</li>
-            <li>Đồng nghiệp trẻ, nhiệt tình, hay trao đổi phương pháp giảng dạy. Có buổi workshop nội bộ mỗi tháng.</li>
-          </ul>
+
+          <div class="job-vibe-section">
+            <div class="job-vibe-title">
+              💬 Văn hoá thật từ nhân viên
+            </div>
+            <ul class="job-vibe">
+              <li>Trường tư thục nhỏ, tập trung phát triển tư duy hơn là học vẹt. Học sinh 20–25 em/lớp, được quan tâm kỹ.</li>
+              <li>Hiệu trưởng coi trọng giáo viên, luôn lắng nghe ý kiến. Không áp lực thành tích ảo, chỉ cần trẻ học được.</li>
+              <li>Đồng nghiệp trẻ, nhiệt tình, hay trao đổi phương pháp giảng dạy. Có buổi workshop nội bộ mỗi tháng.</li>
+            </ul>
+          </div>
+
           <div class="job-badges">
-            <span class="badge">Lớp học nhỏ</span>
-            <span class="badge">Phương pháp mới</span>
-            <span class="badge">Đào tạo nghiệp vụ</span>
+            <span class="badge badge-blue">Lớp học nhỏ</span>
+            <span class="badge badge-green">Phương pháp mới</span>
+            <span class="badge badge-yellow">Đào tạo nghiệp vụ</span>
           </div>
         </div>
+
         <div class="job-actions">
           <button class="btn-secondary job-detail-btn">Xem chi tiết</button>
           <button class="btn-primary job-apply-btn">Ứng tuyển</button>
         </div>
+
         <div class="job-detail-content" hidden>
           <div class="job-hero">
             <button class="overlay-close-btn">×</button>
@@ -1137,17 +1640,51 @@
                 </div>
               </div>
               <div class="job-hero-cta">
+                <button class="btn-culture">📊 Xem đầy đủ văn hoá công ty</button>
                 <button class="btn-primary">Ứng tuyển / Trò chuyện với HR</button>
                 <button class="btn-ghost">Lưu job</button>
               </div>
             </div>
           </div>
+
+          <div class="culture-preview">
+            <div class="culture-preview-title">🏢 Tổng quan văn hoá Nhà Mơ Education</div>
+            <div class="culture-metrics">
+              <div class="culture-metric">
+                <span class="culture-metric-label">Work-life balance:</span>
+                <span class="culture-stars">★★★★☆</span>
+                <span class="culture-metric-value">4.5/5</span>
+              </div>
+              <div class="culture-metric">
+                <span class="culture-metric-label">Cơ hội phát triển:</span>
+                <span class="culture-stars">★★★★☆</span>
+                <span class="culture-metric-value">4/5</span>
+              </div>
+              <div class="culture-metric">
+                <span class="culture-metric-label">Minh bạch:</span>
+                <span class="culture-stars">★★★★★</span>
+                <span class="culture-metric-value">4.5/5</span>
+              </div>
+              <div class="culture-metric">
+                <span class="culture-metric-label">Không khí làm việc:</span>
+                <span class="culture-metric-value">Giáo dục tích cực, tôn trọng GV</span>
+              </div>
+            </div>
+            <a href="#" class="view-full-culture" onclick="event.preventDefault();">Xem đầy đủ văn hoá & đánh giá từ 10 nhân viên →</a>
+          </div>
+
           <div class="job-body">
+            <section class="job-section">
+              <h3>💡 Gợi ý từ JoyWork</h3>
+              <p style="color: var(--brand-blue); font-weight: 500;">Trường tư thục nhỏ với phương pháp giáo dục tích cực, không áp lực thành tích ảo. Phù hợp với giáo viên yêu thích dạy học thật sự.</p>
+            </section>
+
             <section class="job-section">
               <h3>Về trường học</h3>
               <p>Nhà Mơ Education là trường tư thục THCS, với 6 lớp (lớp 6 đến lớp 9), mỗi khối 1–2 lớp. Trường áp dụng phương pháp giảng dạy tích cực, khuyến khích tư duy phản biện và làm việc nhóm.</p>
               <p>Chúng mình tin rằng giáo dục không chỉ là truyền thụ kiến thức, mà là giúp trẻ học cách tư duy, tự học và yêu thích học tập.</p>
             </section>
+
             <section class="job-section">
               <h3>Văn hoá & môi trường làm việc</h3>
               <ul>
@@ -1157,6 +1694,7 @@
                 <li>Workshop nội bộ mỗi tháng về phương pháp giảng dạy, chia sẻ kinh nghiệm. Được tham gia training bên ngoài 1–2 lần/năm.</li>
               </ul>
             </section>
+
             <section class="job-section">
               <h3>Mô tả công việc</h3>
               <ul>
@@ -1167,6 +1705,7 @@
                 <li>Hỗ trợ học sinh yếu kém (nếu có) bằng các buổi học phụ đạo miễn phí (trong giờ hành chính).</li>
               </ul>
             </section>
+
             <section class="job-section">
               <h3>Yêu cầu</h3>
               <ul>
@@ -1177,6 +1716,7 @@
                 <li>Cộng điểm: Có kinh nghiệm dạy theo phương pháp Montessori, PBL, hoặc các phương pháp hiện đại.</li>
               </ul>
             </section>
+
             <section class="job-section">
               <h3>Quyền lợi</h3>
               <ul>
@@ -1187,11 +1727,13 @@
                 <li>Môi trường làm việc thân thiện, đồng nghiệp trẻ, hiệu trưởng gần gũi.</li>
               </ul>
             </section>
+
             <section class="job-section">
               <h3>Thông tin khác</h3>
               <p>Thời gian làm việc: Thứ 2–Thứ 6 (7h30–16h30), bao gồm giờ giảng dạy và giờ chuẩn bị bài, chấm bài. Trường tại Cầu Giấy, Hà Nội.</p>
             </section>
           </div>
+
           <div class="job-overlay-sticky">
             <span>Giáo viên Toán THCS · Nhà Mơ Education</span>
             <button class="btn-primary">Ứng tuyển ngay</button>
@@ -1202,36 +1744,61 @@
       <!-- Job 6 -->
       <article class="job-card" data-job-id="job6">
         <div class="job-main">
+          <div class="company-header">
+            <div class="company-logo" style="background: linear-gradient(135deg, #14b8a6 0%, #0f766e 100%);">CH</div>
+            <div class="company-info">
+              <div class="company-name-row">
+                <span class="company-name">Cozy Home Decor</span>
+                <span class="verified-badge">✓ Đã xác minh</span>
+              </div>
+              <div class="company-stats">
+                <span class="recommend-stat">93% nhân viên recommend</span>
+                <span class="dot">•</span>
+                <span>156 người đã xem</span>
+                <span class="dot">•</span>
+                <a href="#" class="view-culture-link" onclick="event.stopPropagation();">Xem văn hoá →</a>
+              </div>
+            </div>
+          </div>
+
           <h2 class="job-title">Graphic Designer – Thương hiệu nội thất Bắc Âu</h2>
+          
           <div class="job-meta">
-            <span class="company-name">Cozy Home Decor</span>
-            <span class="dot">•</span>
             <span>Hà Nội</span>
             <span class="dot">•</span>
             <span>Toàn thời gian</span>
             <span class="dot">•</span>
-            <span class="verified">Đã xác minh văn hoá</span>
+            <span>Đăng 4 ngày trước</span>
           </div>
+
           <div class="job-salary-row">
             <span class="salary-pill">💰 14–20 triệu/tháng</span>
             <span class="type-pill">Design</span>
-            <span class="posted-pill">Đăng 4 ngày trước</span>
           </div>
-          <ul class="job-vibe">
-            <li>Văn phòng thiết kế đẹp, nhiều cây xanh, ánh sáng tự nhiên. Được làm việc với sản phẩm nội thất cao cấp.</li>
-            <li>Không làm hàng loạt banner giảm giá. Tập trung vào brand identity, lookbook, content chất lượng.</li>
-            <li>Creative Director có background từ agency lớn, feedback rất chi tiết nhưng tôn trọng ý tưởng của designer.</li>
-          </ul>
+
+          <div class="job-vibe-section">
+            <div class="job-vibe-title">
+              💬 Văn hoá thật từ nhân viên
+            </div>
+            <ul class="job-vibe">
+              <li>Văn phòng thiết kế đẹp, nhiều cây xanh, ánh sáng tự nhiên. Được làm việc với sản phẩm nội thất cao cấp.</li>
+              <li>Không làm hàng loạt banner giảm giá. Tập trung vào brand identity, lookbook, content chất lượng.</li>
+              <li>Creative Director có background từ agency lớn, feedback rất chi tiết nhưng tôn trọng ý tưởng của designer.</li>
+            </ul>
+          </div>
+
           <div class="job-badges">
-            <span class="badge">Aesthetic workplace</span>
-            <span class="badge">Brand focus</span>
-            <span class="badge">Portfolio đẹp</span>
+            <span class="badge badge-blue">Aesthetic workplace</span>
+            <span class="badge badge-green">Brand focus</span>
+            <span class="badge badge-yellow">Portfolio đẹp</span>
           </div>
         </div>
+
         <div class="job-actions">
           <button class="btn-secondary job-detail-btn">Xem chi tiết</button>
           <button class="btn-primary job-apply-btn">Ứng tuyển</button>
         </div>
+
         <div class="job-detail-content" hidden>
           <div class="job-hero">
             <button class="overlay-close-btn">×</button>
@@ -1249,17 +1816,51 @@
                 </div>
               </div>
               <div class="job-hero-cta">
+                <button class="btn-culture">📊 Xem đầy đủ văn hoá công ty</button>
                 <button class="btn-primary">Ứng tuyển / Trò chuyện với HR</button>
                 <button class="btn-ghost">Lưu job</button>
               </div>
             </div>
           </div>
+
+          <div class="culture-preview">
+            <div class="culture-preview-title">🏢 Tổng quan văn hoá Cozy Home Decor</div>
+            <div class="culture-metrics">
+              <div class="culture-metric">
+                <span class="culture-metric-label">Work-life balance:</span>
+                <span class="culture-stars">★★★★☆</span>
+                <span class="culture-metric-value">4/5</span>
+              </div>
+              <div class="culture-metric">
+                <span class="culture-metric-label">Cơ hội phát triển:</span>
+                <span class="culture-stars">★★★★★</span>
+                <span class="culture-metric-value">4.5/5</span>
+              </div>
+              <div class="culture-metric">
+                <span class="culture-metric-label">Minh bạch:</span>
+                <span class="culture-stars">★★★★☆</span>
+                <span class="culture-metric-value">4.5/5</span>
+              </div>
+              <div class="culture-metric">
+                <span class="culture-metric-label">Không khí làm việc:</span>
+                <span class="culture-metric-value">Thẩm mỹ cao, creative, tôn trọng design</span>
+              </div>
+            </div>
+            <a href="#" class="view-full-culture" onclick="event.preventDefault();">Xem đầy đủ văn hoá & đánh giá từ 9 nhân viên →</a>
+          </div>
+
           <div class="job-body">
+            <section class="job-section">
+              <h3>💡 Gợi ý từ JoyWork</h3>
+              <p style="color: var(--brand-blue); font-weight: 500;">Làm việc trong văn phòng đẹp với sản phẩm cao cấp, tập trung vào brand identity hơn là làm banner sale. Phù hợp với designer yêu thẩm mỹ.</p>
+            </section>
+
             <section class="job-section">
               <h3>Về công ty</h3>
               <p>Cozy Home Decor là thương hiệu nội thất theo phong cách Scandinavian (Bắc Âu), chuyên về sofa, bàn ghế, đồ decor cao cấp. Chúng mình có 2 showroom tại Hà Nội và bán online qua website, Instagram.</p>
               <p>Khách hàng của chúng mình là những người yêu thích thiết kế tối giản, chất lượng tốt, sẵn sàng chi trả cho sản phẩm bền vững.</p>
             </section>
+
             <section class="job-section">
               <h3>Văn hoá & môi trường làm việc</h3>
               <ul>
@@ -1269,6 +1870,7 @@
                 <li>Team creative 5 người (2 designer, 1 photographer, 1 stylist, 1 copywriter), làm việc chặt chẽ với nhau.</li>
               </ul>
             </section>
+
             <section class="job-section">
               <h3>Mô tả công việc</h3>
               <ul>
@@ -1279,6 +1881,7 @@
                 <li>Duy trì brand guideline, đảm bảo mọi output đều đồng bộ về tone màu, typography, style.</li>
               </ul>
             </section>
+
             <section class="job-section">
               <h3>Yêu cầu</h3>
               <ul>
@@ -1289,6 +1892,7 @@
                 <li>Cộng điểm: Biết Figma, có kinh nghiệm chụp/edit ảnh sản phẩm cơ bản, hoặc đã làm trong ngành lifestyle/home decor.</li>
               </ul>
             </section>
+
             <section class="job-section">
               <h3>Quyền lợi</h3>
               <ul>
@@ -1299,11 +1903,13 @@
                 <li>Được đề xuất ý tưởng creative, tham gia các campaign lớn (product launch, lookbook mùa).</li>
               </ul>
             </section>
+
             <section class="job-section">
               <h3>Thông tin khác</h3>
               <p>Thời gian làm việc: Thứ 2–Thứ 6 (9h–18h), linh hoạt WFH 1 ngày/tuần nếu không có buổi chụp. Văn phòng tại Tây Hồ, Hà Nội.</p>
             </section>
           </div>
+
           <div class="job-overlay-sticky">
             <span>Graphic Designer · Cozy Home Decor</span>
             <button class="btn-primary">Ứng tuyển ngay</button>
@@ -1314,36 +1920,61 @@
       <!-- Job 7 -->
       <article class="job-card" data-job-id="job7">
         <div class="job-main">
+          <div class="company-header">
+            <div class="company-logo" style="background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);">XL</div>
+            <div class="company-info">
+              <div class="company-name-row">
+                <span class="company-name">Xanh Lá Media</span>
+                <span class="verified-badge">✓ Đã xác minh</span>
+              </div>
+              <div class="company-stats">
+                <span class="recommend-stat">87% nhân viên recommend</span>
+                <span class="dot">•</span>
+                <span>178 người đã xem</span>
+                <span class="dot">•</span>
+                <a href="#" class="view-culture-link" onclick="event.stopPropagation();">Xem văn hoá →</a>
+              </div>
+            </div>
+          </div>
+
           <h2 class="job-title">Account Executive – Agency marketing & branding</h2>
+          
           <div class="job-meta">
-            <span class="company-name">Xanh Lá Media</span>
-            <span class="dot">•</span>
             <span>TP.HCM</span>
             <span class="dot">•</span>
             <span>Toàn thời gian</span>
             <span class="dot">•</span>
-            <span class="verified">Đã xác minh văn hoá</span>
+            <span>Đăng 6 ngày trước</span>
           </div>
+
           <div class="job-salary-row">
             <span class="salary-pill">💰 16–24 triệu/tháng</span>
             <span class="type-pill">Account Management</span>
-            <span class="posted-pill">Đăng 6 ngày trước</span>
           </div>
-          <ul class="job-vibe">
-            <li>Agency 30 người, client từ F&B, fashion, tech. Không làm việc với client "khó tính vô lý", lựa chọn project kỹ.</li>
-            <li>Team năng động nhưng không toxic. OT khi có deadline lớn, nhưng được nghỉ bù rõ ràng.</li>
-            <li>Sếp direct từng làm ở Ogilvy, coi trọng chất lượng công việc hơn là "làm nhiều giờ".</li>
-          </ul>
+
+          <div class="job-vibe-section">
+            <div class="job-vibe-title">
+              💬 Văn hoá thật từ nhân viên
+            </div>
+            <ul class="job-vibe">
+              <li>Agency 30 người, client từ F&B, fashion, tech. Không làm việc với client "khó tính vô lý", lựa chọn project kỹ.</li>
+              <li>Team năng động nhưng không toxic. OT khi có deadline lớn, nhưng được nghỉ bù rõ ràng.</li>
+              <li>Sếp direct từng làm ở Ogilvy, coi trọng chất lượng công việc hơn là "làm nhiều giờ".</li>
+            </ul>
+          </div>
+
           <div class="job-badges">
-            <span class="badge">Dự án đa dạng</span>
-            <span class="badge">Client chất lượng</span>
-            <span class="badge">Agency uy tín</span>
+            <span class="badge badge-blue">Dự án đa dạng</span>
+            <span class="badge badge-green">Client chất lượng</span>
+            <span class="badge badge-yellow">Agency uy tín</span>
           </div>
         </div>
+
         <div class="job-actions">
           <button class="btn-secondary job-detail-btn">Xem chi tiết</button>
           <button class="btn-primary job-apply-btn">Ứng tuyển</button>
         </div>
+
         <div class="job-detail-content" hidden>
           <div class="job-hero">
             <button class="overlay-close-btn">×</button>
@@ -1361,17 +1992,51 @@
                 </div>
               </div>
               <div class="job-hero-cta">
+                <button class="btn-culture">📊 Xem đầy đủ văn hoá công ty</button>
                 <button class="btn-primary">Ứng tuyển / Trò chuyện với HR</button>
                 <button class="btn-ghost">Lưu job</button>
               </div>
             </div>
           </div>
+
+          <div class="culture-preview">
+            <div class="culture-preview-title">🏢 Tổng quan văn hoá Xanh Lá Media</div>
+            <div class="culture-metrics">
+              <div class="culture-metric">
+                <span class="culture-metric-label">Work-life balance:</span>
+                <span class="culture-stars">★★★☆☆</span>
+                <span class="culture-metric-value">3.5/5</span>
+              </div>
+              <div class="culture-metric">
+                <span class="culture-metric-label">Cơ hội phát triển:</span>
+                <span class="culture-stars">★★★★★</span>
+                <span class="culture-metric-value">4.5/5</span>
+              </div>
+              <div class="culture-metric">
+                <span class="culture-metric-label">Minh bạch:</span>
+                <span class="culture-stars">★★★★☆</span>
+                <span class="culture-metric-value">4/5</span>
+              </div>
+              <div class="culture-metric">
+                <span class="culture-metric-label">Không khí làm việc:</span>
+                <span class="culture-metric-value">Agency năng động, không toxic</span>
+              </div>
+            </div>
+            <a href="#" class="view-full-culture" onclick="event.preventDefault();">Xem đầy đủ văn hoá & đánh giá từ 22 nhân viên →</a>
+          </div>
+
           <div class="job-body">
+            <section class="job-section">
+              <h3>💡 Gợi ý từ JoyWork</h3>
+              <p style="color: var(--brand-blue); font-weight: 500;">Agency lựa chọn client kỹ, không toxic nhưng vẫn năng động. Có OT nhưng được nghỉ bù rõ ràng. Phù hợp với người thích môi trường agency nhưng không muốn quá áp lực.</p>
+            </section>
+
             <section class="job-section">
               <h3>Về agency</h3>
               <p>Xanh Lá Media là agency marketing & branding với 30 người, chuyên làm chiến dịch integrated cho các thương hiệu F&B, fashion, tech startup. Chúng mình đã làm việc với các brand như Highlands Coffee, Coolmate, Tiki.</p>
               <p>Văn hoá agency: creative, chuyên nghiệp, không toxic. Chúng mình chọn client kỹ, từ chối những project không phù hợp giá trị.</p>
             </section>
+
             <section class="job-section">
               <h3>Văn hoá & môi trường làm việc</h3>
               <ul>
@@ -1381,6 +2046,7 @@
                 <li>Friday happy hour, team building 1 lần/quý. Môi trường cởi mở, mọi người được khuyến khích đóng góp ý tưởng.</li>
               </ul>
             </section>
+
             <section class="job-section">
               <h3>Mô tả công việc</h3>
               <ul>
@@ -1391,6 +2057,7 @@
                 <li>Hỗ trợ team BD (business development) trong việc pitch cho client mới khi cần.</li>
               </ul>
             </section>
+
             <section class="job-section">
               <h3>Yêu cầu</h3>
               <ul>
@@ -1401,6 +2068,7 @@
                 <li>Cộng điểm: Có kiến thức về digital marketing (Facebook Ads, Google Ads), hoặc đã từng làm integrated campaign (online + offline).</li>
               </ul>
             </section>
+
             <section class="job-section">
               <h3>Quyền lợi</h3>
               <ul>
@@ -1411,574 +2079,15 @@
                 <li>Môi trường agency năng động, cơ hội thăng tiến lên Account Manager trong 1–2 năm.</li>
               </ul>
             </section>
+
             <section class="job-section">
               <h3>Thông tin khác</h3>
               <p>Thời gian làm việc: Thứ 2–Thứ 6 (9h–18h), có thể OT khi cần (trước pitch, hoặc campaign launch) nhưng được nghỉ bù hoặc trả thêm. Văn phòng tại quận 1, TP.HCM.</p>
             </section>
           </div>
+
           <div class="job-overlay-sticky">
             <span>Account Executive · Xanh Lá Media</span>
-            <button class="btn-primary">Ứng tuyển ngay</button>
-          </div>
-        </div>
-      </article>
-
-      <!-- Job 8 -->
-      <article class="job-card" data-job-id="job8">
-        <div class="job-main">
-          <h2 class="job-title">Frontend Developer (React) – Fintech Startup</h2>
-          <div class="job-meta">
-            <span class="company-name">PayEase Vietnam</span>
-            <span class="dot">•</span>
-            <span>Hà Nội (Hybrid)</span>
-            <span class="dot">•</span>
-            <span>Toàn thời gian</span>
-            <span class="dot">•</span>
-            <span class="verified">Đã xác minh văn hoá</span>
-          </div>
-          <div class="job-salary-row">
-            <span class="salary-pill">💰 22–32 triệu/tháng</span>
-            <span class="type-pill">Engineering</span>
-            <span class="posted-pill">Đăng hôm qua</span>
-          </div>
-          <ul class="job-vibe">
-            <li>Startup Series A, product đang scale nhanh. Tech team 15 người, senior có background từ Grab, Shopee.</li>
-            <li>Tốc độ nhanh nhưng không chaos. Sprint 2 tuần, retro đều đặn, có QA team hỗ trợ.</li>
-            <li>Được làm fintech product thật, học được về security, payment flow, compliance. Stack hiện đại: React, TypeScript, Next.js.</li>
-          </ul>
-          <div class="job-badges">
-            <span class="badge">Startup Series A</span>
-            <span class="badge">Product scale nhanh</span>
-            <span class="badge">Tech stack mới</span>
-          </div>
-        </div>
-        <div class="job-actions">
-          <button class="btn-secondary job-detail-btn">Xem chi tiết</button>
-          <button class="btn-primary job-apply-btn">Ứng tuyển</button>
-        </div>
-        <div class="job-detail-content" hidden>
-          <div class="job-hero">
-            <button class="overlay-close-btn">×</button>
-            <div class="job-hero-top">
-              <span class="verified-pill">✓ Đã xác minh văn hoá</span>
-            </div>
-            <div class="job-hero-main">
-              <div class="job-hero-text">
-                <h2>Frontend Developer (React)</h2>
-                <p class="company">PayEase Vietnam · Hà Nội (Hybrid) · Toàn thời gian</p>
-                <div class="job-hero-metrics">
-                  <span>💰 22–32 triệu/tháng</span>
-                  <span>👥 Tech team 15 người</span>
-                  <span>📅 Start ASAP</span>
-                </div>
-              </div>
-              <div class="job-hero-cta">
-                <button class="btn-primary">Ứng tuyển / Trò chuyện với HR</button>
-                <button class="btn-ghost">Lưu job</button>
-              </div>
-            </div>
-          </div>
-          <div class="job-body">
-            <section class="job-section">
-              <h3>Về công ty</h3>
-              <p>PayEase Vietnam là fintech startup (Series A) phát triển giải pháp thanh toán cho doanh nghiệp SME. Sản phẩm hiện có 500+ khách hàng doanh nghiệp, đang mở rộng thị trường.</p>
-              <p>Tech team 15 người, senior có background từ Grab, Shopee. Văn hoá startup nhưng quy trình làm việc chuyên nghiệp, không chaos.</p>
-            </section>
-            <section class="job-section">
-              <h3>Văn hoá & môi trường làm việc</h3>
-              <ul>
-                <li>Startup Series A, product đang scale nhanh. Tốc độ làm việc cao nhưng không chaos, có roadmap rõ ràng.</li>
-                <li>Sprint 2 tuần, daily standup, retro đều đặn. QA team hỗ trợ test, dev chỉ cần focus vào code quality.</li>
-                <li>Senior trong team có background từ Grab, Shopee, sẵn sàng review code chi tiết và mentor.</li>
-                <li>Hybrid: 3 ngày office, 2 ngày WFH. Giờ làm linh hoạt miễn đảm bảo overlap với team.</li>
-              </ul>
-            </section>
-            <section class="job-section">
-              <h3>Mô tả công việc</h3>
-              <ul>
-                <li>Phát triển frontend cho web app dashboard (dành cho doanh nghiệp quản lý thanh toán).</li>
-                <li>Build UI components với React, TypeScript, Tailwind CSS. Tích hợp với backend API (RESTful, GraphQL).</li>
-                <li>Optimize performance, đảm bảo app load nhanh, responsive trên mọi thiết bị.</li>
-                <li>Làm việc chặt chẽ với designer (Figma), backend team, và product manager để deliver feature đúng requirement.</li>
-                <li>Viết unit test, integration test. Tham gia code review, đóng góp vào việc cải thiện codebase.</li>
-              </ul>
-            </section>
-            <section class="job-section">
-              <h3>Yêu cầu</h3>
-              <ul>
-                <li>Tối thiểu 2 năm kinh nghiệm làm frontend với React (hoặc Vue, Angular nhưng sẵn sàng chuyển sang React).</li>
-                <li>Thành thạo JavaScript/TypeScript, HTML, CSS. Hiểu React hooks, state management (Redux, Zustand, hoặc Context API).</li>
-                <li>Có kinh nghiệm làm việc với API (RESTful, GraphQL), hiểu async/await, Promise.</li>
-                <li>Biết responsive design, CSS framework (Tailwind, Bootstrap, hoặc styled-components).</li>
-                <li>Quen thuộc với Git, CI/CD. Có khái niệm về testing (Jest, React Testing Library).</li>
-                <li>Cộng điểm: Kinh nghiệm với Next.js, SSR/SSG, hoặc đã làm fintech/banking product.</li>
-              </ul>
-            </section>
-            <section class="job-section">
-              <h3>Quyền lợi</h3>
-              <ul>
-                <li>Lương 22–32 triệu/tháng tuỳ kinh nghiệm, review mỗi 6 tháng.</li>
-                <li>ESOP (cổ phiếu startup) cho nhân viên core.</li>
-                <li>Hybrid 3 ngày office, 2 ngày WFH. Được trang bị laptop (MacBook Pro).</li>
-                <li>Bảo hiểm đầy đủ, nghỉ phép 15 ngày/năm.</li>
-                <li>Học được về fintech, payment flow, security, compliance. Được làm việc với product thực tế có tác động lớn.</li>
-              </ul>
-            </section>
-            <section class="job-section">
-              <h3>Thông tin khác</h3>
-              <p>Thời gian làm việc: Thứ 2–Thứ 6 (9h–18h), 3 ngày office (Thứ 2, 3, 5), 2 ngày WFH. Văn phòng tại Cầu Giấy, Hà Nội.</p>
-            </section>
-          </div>
-          <div class="job-overlay-sticky">
-            <span>Frontend Developer (React) · PayEase Vietnam</span>
-            <button class="btn-primary">Ứng tuyển ngay</button>
-          </div>
-        </div>
-      </article>
-
-      <!-- Job 9 -->
-      <article class="job-card" data-job-id="job9">
-        <div class="job-main">
-          <h2 class="job-title">HR Generalist – Startup EdTech đang tăng trưởng</h2>
-          <div class="job-meta">
-            <span class="company-name">LearnHub Vietnam</span>
-            <span class="dot">•</span>
-            <span>TP.HCM (Hybrid)</span>
-            <span class="dot">•</span>
-            <span>Toàn thời gian</span>
-            <span class="dot">•</span>
-            <span class="verified">Đã xác minh văn hoá</span>
-          </div>
-          <div class="job-salary-row">
-            <span class="salary-pill">💰 16–22 triệu/tháng</span>
-            <span class="type-pill">HR & People Ops</span>
-            <span class="posted-pill">Đăng 1 tuần trước</span>
-          </div>
-          <ul class="job-vibe">
-            <li>Startup 50 người, đang scale từ 50 lên 100 người trong năm tới. HR được trao quyền xây dựng văn hoá.</li>
-            <li>Không làm HR "hành chính". Được tham gia chiến lược tuyển dụng, employer branding, culture building.</li>
-            <li>Founder tin vào "people-first culture", HR ngồi cùng bàn với leadership khi ra quyết định lớn.</li>
-          </ul>
-          <div class="job-badges">
-            <span class="badge">Strategic HR</span>
-            <span class="badge">Tham gia culture building</span>
-            <span class="badge">Scale nhanh</span>
-          </div>
-        </div>
-        <div class="job-actions">
-          <button class="btn-secondary job-detail-btn">Xem chi tiết</button>
-          <button class="btn-primary job-apply-btn">Ứng tuyển</button>
-        </div>
-        <div class="job-detail-content" hidden>
-          <div class="job-hero">
-            <button class="overlay-close-btn">×</button>
-            <div class="job-hero-top">
-              <span class="verified-pill">✓ Đã xác minh văn hoá</span>
-            </div>
-            <div class="job-hero-main">
-              <div class="job-hero-text">
-                <h2>HR Generalist</h2>
-                <p class="company">LearnHub Vietnam · TP.HCM (Hybrid) · Toàn thời gian</p>
-                <div class="job-hero-metrics">
-                  <span>💰 16–22 triệu/tháng</span>
-                  <span>👥 Công ty 50 người</span>
-                  <span>📅 Start Q1/2026</span>
-                </div>
-              </div>
-              <div class="job-hero-cta">
-                <button class="btn-primary">Ứng tuyển / Trò chuyện với HR</button>
-                <button class="btn-ghost">Lưu job</button>
-              </div>
-            </div>
-          </div>
-          <div class="job-body">
-            <section class="job-section">
-              <h3>Về công ty</h3>
-              <p>LearnHub Vietnam là startup EdTech phát triển nền tảng học online cho doanh nghiệp và cá nhân. Hiện có 50 nhân viên, mục tiêu scale lên 100 người trong 2026.</p>
-              <p>Chúng mình tin vào "people-first culture" – nhân sự là tài sản quan trọng nhất. HR không chỉ làm hành chính, mà tham gia vào chiến lược phát triển công ty.</p>
-            </section>
-            <section class="job-section">
-              <h3>Văn hoá & môi trường làm việc</h3>
-              <ul>
-                <li>Startup 50 người, đang scale nhanh. HR được trao quyền để xây dựng văn hoá, không chỉ thực hiện theo template có sẵn.</li>
-                <li>Founder tin vào "people-first", HR ngồi cùng bàn với leadership khi ra quyết định lớn (hiring plan, compensation, culture initiatives).</li>
-                <li>Không làm HR "hành chính" kiểu truyền thống. Được tham gia employer branding, tuyển dụng chiến lược, culture building.</li>
-                <li>Team HR 2 người (bạn sẽ là người thứ 2), báo cáo trực tiếp cho CEO. Có budget để thử nghiệm các sáng kiến HR mới.</li>
-              </ul>
-            </section>
-            <section class="job-section">
-              <h3>Mô tả công việc</h3>
-              <ul>
-                <li>Tuyển dụng cho các vị trí tech, product, sales, marketing (end-to-end từ viết JD, screen CV, phỏng vấn, offer).</li>
-                <li>Onboarding nhân viên mới, đảm bảo họ tích hợp tốt vào team trong tháng đầu tiên.</li>
-                <li>Quản lý HR admin: hợp đồng, bảo hiểm, chấm công, tính lương (phối hợp với kế toán).</li>
-                <li>Xây dựng employer branding: viết content về văn hoá công ty, quản lý trang careers, tham gia sự kiện tuyển dụng.</li>
-                <li>Tổ chức các hoạt động nội bộ: team building, 1-on-1 với nhân viên, khảo sát hài lòng, cải thiện văn hoá.</li>
-              </ul>
-            </section>
-            <section class="job-section">
-              <h3>Yêu cầu</h3>
-              <ul>
-                <li>Tối thiểu 2 năm kinh nghiệm làm HR Generalist hoặc Recruiter (ưu tiên trong môi trường startup/tech).</li>
-                <li>Có kinh nghiệm tuyển dụng cho vị trí tech (developer, designer, product manager) là lợi thế lớn.</li>
-                <li>Kỹ năng giao tiếp tốt, biết cách thu hút ứng viên và xây dựng employer brand.</li>
-                <li>Tư duy chiến lược, không chỉ làm theo quy trình mà biết đề xuất cải tiến HR process.</li>
-                <li>Cộng điểm: Biết tiếng Anh (đọc hiểu tài liệu HR quốc tế), hoặc đã từng làm HR tại startup scale từ 20–100 người.</li>
-              </ul>
-            </section>
-            <section class="job-section">
-              <h3>Quyền lợi</h3>
-              <ul>
-                <li>Lương 16–22 triệu/tháng tuỳ kinh nghiệm, review mỗi 6 tháng.</li>
-                <li>Được tham gia vào quyết định chiến lược về HR, có tiếng nói trong leadership team.</li>
-                <li>Budget để thử nghiệm các sáng kiến HR mới (employer branding, culture initiatives).</li>
-                <li>Bảo hiểm đầy đủ, nghỉ phép 12 ngày/năm + thêm ngày nghỉ sinh nhật.</li>
-                <li>Hybrid 2 ngày WFH/tuần, môi trường startup năng động, học được nhiều.</li>
-              </ul>
-            </section>
-            <section class="job-section">
-              <h3>Thông tin khác</h3>
-              <p>Thời gian làm việc: Thứ 2–Thứ 6 (9h–18h), hybrid 2 ngày WFH/tuần. Văn phòng tại quận 3, TP.HCM.</p>
-            </section>
-          </div>
-          <div class="job-overlay-sticky">
-            <span>HR Generalist · LearnHub Vietnam</span>
-            <button class="btn-primary">Ứng tuyển ngay</button>
-          </div>
-        </div>
-      </article>
-
-      <!-- Job 10 -->
-      <article class="job-card" data-job-id="job10">
-        <div class="job-main">
-          <h2 class="job-title">Customer Success Manager – SaaS B2B</h2>
-          <div class="job-meta">
-            <span class="company-name">TaskFlow Solutions</span>
-            <span class="dot">•</span>
-            <span>Remote (VN)</span>
-            <span class="dot">•</span>
-            <span>Toàn thời gian</span>
-            <span class="dot">•</span>
-            <span class="verified">Đã xác minh văn hoá</span>
-          </div>
-          <div class="job-salary-row">
-            <span class="salary-pill">💰 18–26 triệu/tháng</span>
-            <span class="type-pill">Customer Success</span>
-            <span class="posted-pill">Đăng 3 ngày trước</span>
-          </div>
-          <ul class="job-vibe">
-            <li>Full remote, làm việc với khách hàng doanh nghiệp. KPI rõ ràng: retention rate, upsell, customer satisfaction.</li>
-            <li>Team CS 8 người, senior có kinh nghiệm từ Hubspot, Salesforce. Học được về SaaS metrics, customer journey.</li>
-            <li>Không phải support line trả lời vé ticket. Làm việc strategy: onboarding, training, consulting cho client.</li>
-          </ul>
-          <div class="job-badges">
-            <span class="badge">Full remote</span>
-            <span class="badge">B2B SaaS</span>
-            <span class="badge">Strategic CS</span>
-          </div>
-        </div>
-        <div class="job-actions">
-          <button class="btn-secondary job-detail-btn">Xem chi tiết</button>
-          <button class="btn-primary job-apply-btn">Ứng tuyển</button>
-        </div>
-        <div class="job-detail-content" hidden>
-          <div class="job-hero">
-            <button class="overlay-close-btn">×</button>
-            <div class="job-hero-top">
-              <span class="verified-pill">✓ Đã xác minh văn hoá</span>
-            </div>
-            <div class="job-hero-main">
-              <div class="job-hero-text">
-                <h2>Customer Success Manager</h2>
-                <p class="company">TaskFlow Solutions · Remote (VN) · Toàn thời gian</p>
-                <div class="job-hero-metrics">
-                  <span>💰 18–26 triệu/tháng</span>
-                  <span>👥 Team CS 8 người</span>
-                  <span>📅 Start Q1/2026</span>
-                </div>
-              </div>
-              <div class="job-hero-cta">
-                <button class="btn-primary">Ứng tuyển / Trò chuyện với HR</button>
-                <button class="btn-ghost">Lưu job</button>
-              </div>
-            </div>
-          </div>
-          <div class="job-body">
-            <section class="job-section">
-              <h3>Về công ty</h3>
-              <p>TaskFlow Solutions phát triển SaaS platform giúp doanh nghiệp quản lý project và collaboration. Hiện có 300+ khách hàng doanh nghiệp tại Việt Nam và SEA.</p>
-              <p>Đội ngũ 40 người, team Customer Success 8 người, làm việc remote hoàn toàn. Văn hoá remote-first, focus vào kết quả và customer satisfaction.</p>
-            </section>
-            <section class="job-section">
-              <h3>Văn hoá & môi trường làm việc</h3>
-              <ul>
-                <li>Full remote, làm việc với khách hàng doanh nghiệp (50–500 nhân viên). KPI rõ ràng: retention, upsell, NPS.</li>
-                <li>Team CS 8 người, senior có background từ Hubspot, Salesforce. Học được nhiều về SaaS metrics, customer lifecycle.</li>
-                <li>Không phải support line trả lời vé ticket. CS ở đây là strategic role: onboarding, training, consulting cho client để họ dùng product hiệu quả.</li>
-                <li>Giờ làm linh hoạt, miễn đảm bảo overlap 9h–17h để họp với client. Weekly sync với team, monthly all-hands.</li>
-              </ul>
-            </section>
-            <section class="job-section">
-              <h3>Mô tả công việc</h3>
-              <ul>
-                <li>Quản lý 15–20 khách hàng doanh nghiệp, đảm bảo họ onboard thành công và sử dụng product đúng cách.</li>
-                <li>Tổ chức training session cho client (online), tư vấn best practices để họ đạt được mục tiêu kinh doanh qua product.</li>
-                <li>Theo dõi product usage, chủ động reach out khi thấy dấu hiệu churn (usage giảm, không login lâu).</li>
-                <li>Identify upsell opportunities, giới thiệu các tính năng premium hoặc gói nâng cấp phù hợp.</li>
-                <li>Thu thập feedback từ customer, làm việc với Product team để đề xuất cải tiến product.</li>
-              </ul>
-            </section>
-            <section class="job-section">
-              <h3>Yêu cầu</h3>
-              <ul>
-                <li>Tối thiểu 2 năm kinh nghiệm làm Customer Success, Account Manager, hoặc Sales B2B (ưu tiên SaaS).</li>
-                <li>Hiểu về SaaS business model, biết các metrics như MRR, churn rate, NPS, customer lifetime value.</li>
-                <li>Kỹ năng giao tiếp tốt, tự tin present và training cho client (qua Zoom/Google Meet).</li>
-                <li>Tư duy customer-centric, biết cách lắng nghe và giải quyết vấn đề của khách hàng.</li>
-                <li>Cộng điểm: Tiếng Anh tốt (nhiều client ở SEA), hoặc có kinh nghiệm làm CS tại startup SaaS quốc tế.</li>
-              </ul>
-            </section>
-            <section class="job-section">
-              <h3>Quyền lợi</h3>
-              <ul>
-                <li>Lương 18–26 triệu/tháng tuỳ kinh nghiệm, review mỗi 6 tháng.</li>
-                <li>Thưởng dựa trên KPI (retention, upsell). Trung bình thêm 2–4 triệu/tháng nếu đạt target.</li>
-                <li>Full remote, được trang bị laptop và hỗ trợ internet/điện thoại 1 triệu/tháng.</li>
-                <li>Bảo hiểm đầy đủ, nghỉ phép 15 ngày/năm.</li>
-                <li>Học được về SaaS, CS best practices, customer journey. Team gathering 1 lần/quý.</li>
-              </ul>
-            </section>
-            <section class="job-section">
-              <h3>Thông tin khác</h3>
-              <p>Làm việc hoàn toàn remote. Giờ làm linh hoạt nhưng cần overlap 9h–17h để họp với client và team. Team gathering 1 lần/quý tại Hà Nội hoặc TP.HCM.</p>
-            </section>
-          </div>
-          <div class="job-overlay-sticky">
-            <span>Customer Success Manager · TaskFlow Solutions</span>
-            <button class="btn-primary">Ứng tuyển ngay</button>
-          </div>
-        </div>
-      </article>
-
-      <!-- Job 11 -->
-      <article class="job-card" data-job-id="job11">
-        <div class="job-main">
-          <h2 class="job-title">Product Designer (UI/UX) – Healthtech Startup</h2>
-          <div class="job-meta">
-            <span class="company-name">HealthyMe App</span>
-            <span class="dot">•</span>
-            <span>Hà Nội (Hybrid)</span>
-            <span class="dot">•</span>
-            <span>Toàn thời gian</span>
-            <span class="dot">•</span>
-            <span class="verified">Đã xác minh văn hoá</span>
-          </div>
-          <div class="job-salary-row">
-            <span class="salary-pill">💰 20–30 triệu/tháng</span>
-            <span class="type-pill">Product Design</span>
-            <span class="posted-pill">Đăng 2 ngày trước</span>
-          </div>
-          <ul class="job-vibe">
-            <li>Product có impact thật: giúp người dùng theo dõi sức khoẻ, dinh dưỡng, tập luyện. User retention cao, feedback tích cực.</li>
-            <li>Design team 3 người, làm việc chặt chẽ với Product Manager và dev. Được tham gia user research, A/B test.</li>
-            <li>Không làm outsource, không làm nhiều project cùng lúc. Tập trung vào 1 product duy nhất, làm sâu, làm kỹ.</li>
-          </ul>
-          <div class="job-badges">
-            <span class="badge">Healthtech impact</span>
-            <span class="badge">User research</span>
-            <span class="badge">1 product focus</span>
-          </div>
-        </div>
-        <div class="job-actions">
-          <button class="btn-secondary job-detail-btn">Xem chi tiết</button>
-          <button class="btn-primary job-apply-btn">Ứng tuyển</button>
-        </div>
-        <div class="job-detail-content" hidden>
-          <div class="job-hero">
-            <button class="overlay-close-btn">×</button>
-            <div class="job-hero-top">
-              <span class="verified-pill">✓ Đã xác minh văn hoá</span>
-            </div>
-            <div class="job-hero-main">
-              <div class="job-hero-text">
-                <h2>Product Designer (UI/UX)</h2>
-                <p class="company">HealthyMe App · Hà Nội (Hybrid) · Toàn thời gian</p>
-                <div class="job-hero-metrics">
-                  <span>💰 20–30 triệu/tháng</span>
-                  <span>👥 Design team 3 người</span>
-                  <span>📅 Start Q1/2026</span>
-                </div>
-              </div>
-              <div class="job-hero-cta">
-                <button class="btn-primary">Ứng tuyển / Trò chuyện với HR</button>
-                <button class="btn-ghost">Lưu job</button>
-              </div>
-            </div>
-          </div>
-          <div class="job-body">
-            <section class="job-section">
-              <h3>Về công ty</h3>
-              <p>HealthyMe là startup healthtech phát triển app giúp người dùng theo dõi sức khoẻ, dinh dưỡng, tập luyện. Hiện có 100K+ người dùng, đang chuẩn bị ra mắt tính năng premium.</p>
-              <p>Đội ngũ 25 người, design team 3 người (1 Lead Designer + 2 Product Designer). Văn hoá product-driven, data-informed design.</p>
-            </section>
-            <section class="job-section">
-              <h3>Văn hoá & môi trường làm việc</h3>
-              <ul>
-                <li>Product có impact thật: giúp user cải thiện sức khoẻ, theo dõi dinh dưỡng, tập luyện. User retention cao, feedback tích cực.</li>
-                <li>Design team 3 người, làm việc chặt chẽ với PM và dev team. Được tham gia user research, usability test, A/B test.</li>
-                <li>Không làm outsource, không nhảy project liên tục. Tập trung vào 1 product, làm sâu, làm kỹ, theo dõi metrics để cải thiện.</li>
-                <li>Hybrid 3 ngày office, 2 ngày WFH. Design workshop 1 lần/tháng, retrospective sau mỗi sprint.</li>
-              </ul>
-            </section>
-            <section class="job-section">
-              <h3>Mô tả công việc</h3>
-              <ul>
-                <li>Thiết kế UI/UX cho app mobile (iOS, Android) và web dashboard.</li>
-                <li>Làm việc với PM để hiểu user needs, define problem statement, đề xuất solution dựa trên user research.</li>
-                <li>Tạo wireframe, prototype (Figma), run usability test với user, iterate design dựa trên feedback.</li>
-                <li>Phối hợp với dev team để đảm bảo design được implement đúng spec, theo dõi metrics để đánh giá hiệu quả.</li>
-                <li>Maintain design system, đảm bảo consistency về UI component, typography, color, spacing.</li>
-              </ul>
-            </section>
-            <section class="job-section">
-              <h3>Yêu cầu</h3>
-              <ul>
-                <li>Tối thiểu 2 năm kinh nghiệm làm Product Designer hoặc UI/UX Designer (ưu tiên app mobile hoặc SaaS).</li>
-                <li>Thành thạo Figma, hiểu về design system, component-based design.</li>
-                <li>Có kinh nghiệm làm user research (interview, survey, usability test), data-informed design.</li>
-                <li>Portfolio thể hiện được end-to-end design process: research → wireframe → prototype → final design → metrics.</li>
-                <li>Cộng điểm: Hiểu về healthtech/fitness, hoặc đã từng design cho app mobile có tương tác phức tạp (tracking, dashboard, gamification).</li>
-              </ul>
-            </section>
-            <section class="job-section">
-              <h3>Quyền lợi</h3>
-              <ul>
-                <li>Lương 20–30 triệu/tháng tuỳ kinh nghiệm, review mỗi 6 tháng.</li>
-                <li>Được làm product có impact, nhìn thấy user sử dụng và cảm ơn team (user feedback rất tích cực).</li>
-                <li>Hybrid 3 ngày office, 2 ngày WFH. Được trang bị MacBook, màn hình ngoài.</li>
-                <li>Bảo hiểm đầy đủ, nghỉ phép 12 ngày/năm + ngày nghỉ sinh nhật.</li>
-                <li>Budget cho việc học course, tham gia design conference, mua sách design.</li>
-              </ul>
-            </section>
-            <section class="job-section">
-              <h3>Thông tin khác</h3>
-              <p>Thời gian làm việc: Thứ 2–Thứ 6 (9h–18h), hybrid 3 ngày office (Thứ 2, 3, 5), 2 ngày WFH. Văn phòng tại Cầu Giấy, Hà Nội.</p>
-            </section>
-          </div>
-          <div class="job-overlay-sticky">
-            <span>Product Designer (UI/UX) · HealthyMe App</span>
-            <button class="btn-primary">Ứng tuyển ngay</button>
-          </div>
-        </div>
-      </article>
-
-      <!-- Job 12 -->
-      <article class="job-card" data-job-id="job12">
-        <div class="job-main">
-          <h2 class="job-title">Video Editor – YouTube Channel về Du lịch</h2>
-          <div class="job-meta">
-            <span class="company-name">VietTravel Media</span>
-            <span class="dot">•</span>
-            <span>Hà Nội (Hybrid)</span>
-            <span class="dot">•</span>
-            <span>Toàn thời gian</span>
-            <span class="dot">•</span>
-            <span class="verified">Đã xác minh văn hoá</span>
-          </div>
-          <div class="job-salary-row">
-            <span class="salary-pill">💰 13–19 triệu/tháng</span>
-            <span class="type-pill">Video Production</span>
-            <span class="posted-pill">Đăng 5 ngày trước</span>
-          </div>
-          <ul class="job-vibe">
-            <li>Làm video về du lịch Việt Nam, content tích cực, đẹp, truyền cảm hứng. Channel 200K subs, đang viral.</li>
-            <li>Không deadline gấp gáp. Mỗi video được đầu tư kỹ lưỡng về content, color grading, sound design.</li>
-            <li>Được đi du lịch cùng team (2–3 chuyến/năm) để quay content. Làm việc với footage đẹp, học được nhiều.</li>
-          </ul>
-          <div class="job-badges">
-            <span class="badge">Travel content</span>
-            <span class="badge">Creative freedom</span>
-            <span class="badge">Đi du lịch cùng team</span>
-          </div>
-        </div>
-        <div class="job-actions">
-          <button class="btn-secondary job-detail-btn">Xem chi tiết</button>
-          <button class="btn-primary job-apply-btn">Ứng tuyển</button>
-        </div>
-        <div class="job-detail-content" hidden>
-          <div class="job-hero">
-            <button class="overlay-close-btn">×</button>
-            <div class="job-hero-top">
-              <span class="verified-pill">✓ Đã xác minh văn hoá</span>
-            </div>
-            <div class="job-hero-main">
-              <div class="job-hero-text">
-                <h2>Video Editor</h2>
-                <p class="company">VietTravel Media · Hà Nội (Hybrid) · Toàn thời gian</p>
-                <div class="job-hero-metrics">
-                  <span>💰 13–19 triệu/tháng</span>
-                  <span>👥 Team content 6 người</span>
-                  <span>📅 Start tháng 12/2025</span>
-                </div>
-              </div>
-              <div class="job-hero-cta">
-                <button class="btn-primary">Ứng tuyển / Trò chuyện với HR</button>
-                <button class="btn-ghost">Lưu job</button>
-              </div>
-            </div>
-          </div>
-          <div class="job-body">
-            <section class="job-section">
-              <h3>Về kênh YouTube</h3>
-              <p>VietTravel Media sản xuất video về du lịch Việt Nam, giới thiệu các điểm đến, văn hoá, ẩm thực. Channel 200K subscribers, video trung bình 50K–200K views, đang viral với series "Hidden Gems Vietnam".</p>
-              <p>Team 6 người: host, videographer, editor, writer, social media manager. Content tích cực, đẹp, truyền cảm hứng cho người xem khám phá Việt Nam.</p>
-            </section>
-            <section class="job-section">
-              <h3>Văn hoá & môi trường làm việc</h3>
-              <ul>
-                <li>Làm video về du lịch, content tích cực, đẹp, có ý nghĩa. Không làm content clickbait hoặc drama.</li>
-                <li>Không deadline gấp gáp. Mỗi video (10–15 phút) được đầu tư kỹ về storytelling, color grading, sound design.</li>
-                <li>Được đi du lịch cùng team 2–3 chuyến/năm (Sapa, Phú Quốc, Đà Lạt...) để quay content. Làm việc với footage đẹp, học được nhiều về cinematography.</li>
-                <li>Creative Director có background làm phim tài liệu, coi trọng chất lượng hơn là số lượng.</li>
-              </ul>
-            </section>
-            <section class="job-section">
-              <h3>Mô tả công việc</h3>
-              <ul>
-                <li>Edit video YouTube (10–15 phút/video), 2–3 video/tháng. Bao gồm: cắt ghép, color grading, sound design, motion graphics nhỏ.</li>
-                <li>Làm việc với footage từ videographer, hoặc tự quay thêm b-roll khi cần.</li>
-                <li>Edit short-form content (YouTube Shorts, TikTok, Reels) từ footage dài.</li>
-                <li>Phối hợp với scriptwriter để đảm bảo video flow tốt, storytelling rõ ràng.</li>
-                <li>Tham gia brainstorm ý tưởng cho video mới, đề xuất cách edit sáng tạo.</li>
-              </ul>
-            </section>
-            <section class="job-section">
-              <h3>Yêu cầu</h3>
-              <ul>
-                <li>Tối thiểu 1–2 năm kinh nghiệm edit video (YouTube, documentary, commercial, hoặc freelance).</li>
-                <li>Thành thạo Adobe Premiere Pro, DaVinci Resolve (hoặc Final Cut Pro). Biết color grading, sound mixing.</li>
-                <li>Portfolio có video dài (5–15 phút), thể hiện khả năng storytelling, pacing, color grading.</li>
-                <li>Yêu thích du lịch, có khiếu thẩm mỹ tốt, hiểu cách làm content viral trên YouTube.</li>
-                <li>Cộng điểm: Biết After Effects (motion graphics), hoặc có kinh nghiệm edit travel/documentary.</li>
-              </ul>
-            </section>
-            <section class="job-section">
-              <h3>Quyền lợi</h3>
-              <ul>
-                <li>Lương 13–19 triệu/tháng tuỳ kinh nghiệm, review mỗi 6 tháng.</li>
-                <li>Được đi du lịch cùng team 2–3 chuyến/năm (tất cả chi phí do công ty chi trả).</li>
-                <li>Làm việc với content đẹp, học được nhiều về cinematography, storytelling, color grading.</li>
-                <li>Bảo hiểm đầy đủ, nghỉ phép 12 ngày/năm.</li>
-                <li>Hybrid 2 ngày WFH/tuần khi không có deadline gấp.</li>
-              </ul>
-            </section>
-            <section class="job-section">
-              <h3>Thông tin khác</h3>
-              <p>Thời gian làm việc: Thứ 2–Thứ 6 (9h–18h), hybrid 2 ngày WFH/tuần (linh hoạt tuỳ deadline). Văn phòng tại Ba Đình, Hà Nội.</p>
-            </section>
-          </div>
-          <div class="job-overlay-sticky">
-            <span>Video Editor · VietTravel Media</span>
             <button class="btn-primary">Ứng tuyển ngay</button>
           </div>
         </div>
