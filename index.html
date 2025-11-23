@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-page: #f3f4f6;
+      --bg-page: #f9fafb;
       --bg-card: #ffffff;
       --border-subtle: #e5e7eb;
       --text-main: #111827;
@@ -17,8 +17,7 @@
       --brand-blue: #2563eb;
       --brand-blue-soft: #eff6ff;
       --verified-green: #10b981;
-      --vibe-bg: #f0f9ff;
-      --gray-soft: #f3f4f6;
+      --vibe-bg: #f8fafc;
     }
 
     * {
@@ -47,10 +46,106 @@
       }
     }
 
+    /* Banner Ads */
+    .banner-ads {
+      margin-bottom: 24px;
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 8px;
+    }
+
+    .banner-ads::-webkit-scrollbar {
+      height: 4px;
+    }
+
+    .banner-ads::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .banner-ads::-webkit-scrollbar-thumb {
+      background: var(--border-subtle);
+      border-radius: 2px;
+    }
+
+    .banner-ad {
+      flex: 0 0 auto;
+      width: 100%;
+      max-width: 720px;
+      height: 120px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.2s;
+      position: relative;
+    }
+
+    @media (min-width: 768px) {
+      .banner-ad {
+        height: 140px;
+      }
+    }
+
+    .banner-ad:hover {
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .banner-ad-content {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      padding: 20px 24px;
+      gap: 20px;
+    }
+
+    .banner-ad-logo {
+      width: 80px;
+      height: 80px;
+      flex-shrink: 0;
+      background: #f3f4f6;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 24px;
+      color: #6b7280;
+    }
+
+    .banner-ad-text {
+      flex: 1;
+    }
+
+    .banner-ad-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 4px;
+    }
+
+    .banner-ad-subtitle {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .banner-ad-label {
+      display: inline-block;
+      font-size: 11px;
+      color: var(--text-muted);
+      background: var(--bg-page);
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
     /* Header */
     .header-section {
       background: var(--bg-card);
-      border-radius: 16px;
+      border-radius: 12px;
+      border: 1px solid var(--border-subtle);
       padding: 24px;
       margin-bottom: 20px;
     }
@@ -90,7 +185,7 @@
     /* Search Card */
     .search-card {
       background: var(--bg-card);
-      border-radius: 16px;
+      border-radius: 12px;
       border: 1px solid var(--border-subtle);
       padding: 20px;
       margin-bottom: 20px;
@@ -119,14 +214,16 @@
       left: 14px;
       top: 50%;
       transform: translateY(-50%);
-      font-size: 18px;
+      width: 18px;
+      height: 18px;
+      color: var(--text-muted);
     }
 
     input[type="text"] {
       width: 100%;
       padding: 12px 12px 12px 44px;
       border: 1px solid var(--border-subtle);
-      border-radius: 12px;
+      border-radius: 8px;
       font-size: 15px;
       font-family: inherit;
       outline: none;
@@ -141,7 +238,7 @@
       background: var(--brand-blue);
       color: white;
       padding: 12px 24px;
-      border-radius: 999px;
+      border-radius: 8px;
       border: none;
       font-weight: 500;
       font-size: 15px;
@@ -160,7 +257,7 @@
       border: 1px solid var(--border-subtle);
       color: var(--text-main);
       padding: 10px 16px;
-      border-radius: 999px;
+      border-radius: 8px;
       font-weight: 500;
       font-size: 14px;
       cursor: pointer;
@@ -171,43 +268,6 @@
     .btn-secondary:hover {
       border-color: var(--brand-blue);
       color: var(--brand-blue);
-    }
-
-    .btn-ghost {
-      background: transparent;
-      border: 1px solid rgba(255,255,255,0.3);
-      color: white;
-      padding: 10px 16px;
-      border-radius: 999px;
-      font-weight: 500;
-      font-size: 14px;
-      cursor: pointer;
-      transition: all 0.2s;
-      font-family: inherit;
-    }
-
-    .btn-ghost:hover {
-      background: rgba(255,255,255,0.1);
-    }
-
-    .btn-culture {
-      background: var(--brand-blue-soft);
-      border: 1px solid var(--brand-blue);
-      color: var(--brand-blue);
-      padding: 12px 20px;
-      border-radius: 999px;
-      font-weight: 500;
-      font-size: 15px;
-      cursor: pointer;
-      transition: all 0.2s;
-      font-family: inherit;
-      width: 100%;
-      margin-bottom: 8px;
-    }
-
-    .btn-culture:hover {
-      background: var(--brand-blue);
-      color: white;
     }
 
     /* Filters */
@@ -249,7 +309,7 @@
     .chip {
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
-      border-radius: 999px;
+      border-radius: 6px;
       padding: 8px 16px;
       font-size: 14px;
       white-space: nowrap;
@@ -284,7 +344,7 @@
     .filter-dropdown {
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
-      border-radius: 8px;
+      border-radius: 6px;
       padding: 8px 14px;
       font-size: 14px;
       color: var(--text-main);
@@ -299,16 +359,19 @@
     .job-card {
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
-      border-radius: 16px;
+      border-radius: 12px;
       padding: 20px;
       margin-bottom: 12px;
       transition: all 0.2s;
-      cursor: pointer;
+      text-decoration: none;
+      display: block;
+      color: inherit;
     }
 
     .job-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transform: translateY(-1px);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      border-color: #d1d5db;
     }
 
     @media (min-width: 768px) {
@@ -334,16 +397,15 @@
     .company-logo {
       width: 48px;
       height: 48px;
-      border-radius: 50%;
-      background: var(--gray-soft);
+      border-radius: 8px;
+      background: #f3f4f6;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--text-muted);
+      color: #6b7280;
       font-weight: 600;
       font-size: 18px;
       flex-shrink: 0;
-      border: 2px solid var(--border-subtle);
     }
 
     .company-info {
@@ -368,7 +430,7 @@
       background: var(--verified-green);
       color: white;
       padding: 2px 8px;
-      border-radius: 999px;
+      border-radius: 4px;
       font-size: 11px;
       font-weight: 600;
       display: inline-flex;
@@ -432,24 +494,28 @@
       margin-bottom: 12px;
     }
 
-    .salary-pill, .type-pill, .posted-pill {
-      background: var(--gray-soft);
+    .salary-pill, .type-pill {
+      background: var(--bg-page);
       padding: 4px 12px;
-      border-radius: 999px;
+      border-radius: 6px;
       font-size: 13px;
       color: var(--text-main);
+      border: 1px solid var(--border-subtle);
     }
 
     .salary-pill {
       font-weight: 500;
+      border-color: #d97706;
+      background: #fef3c7;
+      color: #92400e;
     }
 
     /* Vibe Section */
     .job-vibe-section {
       background: var(--vibe-bg);
-      border: 1px solid #bfdbfe;
-      border-radius: 12px;
-      padding: 12px 16px;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 14px 16px;
       margin-bottom: 12px;
     }
 
@@ -460,9 +526,15 @@
       font-size: 13px;
       font-weight: 600;
       color: var(--brand-blue);
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       text-transform: uppercase;
       letter-spacing: 0.3px;
+    }
+
+    .vibe-icon {
+      width: 14px;
+      height: 14px;
+      fill: currentColor;
     }
 
     .job-vibe {
@@ -472,9 +544,9 @@
     }
 
     .job-vibe li {
-      font-size: 15px;
+      font-size: 14px;
       color: var(--text-main);
-      padding-left: 20px;
+      padding-left: 16px;
       position: relative;
       margin-bottom: 6px;
       line-height: 1.5;
@@ -485,11 +557,14 @@
     }
 
     .job-vibe li:before {
-      content: "•";
+      content: "";
       position: absolute;
-      left: 6px;
-      color: var(--brand-blue);
-      font-weight: 600;
+      left: 4px;
+      top: 9px;
+      width: 4px;
+      height: 4px;
+      background: var(--brand-blue);
+      border-radius: 50%;
     }
 
     .job-badges {
@@ -499,17 +574,13 @@
     }
 
     .badge {
-      background: var(--gray-soft);
-      color: var(--text-muted);
-      border-radius: 999px;
+      border-radius: 6px;
       padding: 4px 10px;
       font-size: 12px;
       font-weight: 500;
-    }
-
-    .badge-blue {
-      background: var(--brand-blue-soft);
-      color: var(--brand-blue);
+      background: var(--bg-page);
+      color: var(--text-muted);
+      border: 1px solid var(--border-subtle);
     }
 
     .job-actions {
@@ -526,353 +597,56 @@
       }
     }
 
-    /* Banner Card */
-    .banner-card {
-      background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
-      border: 2px solid var(--brand-blue);
-      border-radius: 16px;
-      padding: 24px;
-      margin-bottom: 12px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .banner-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 200px;
-      height: 200px;
-      background: radial-gradient(circle, rgba(37,99,235,0.1) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .banner-label {
-      display: inline-block;
-      background: var(--brand-blue);
-      color: white;
-      padding: 4px 12px;
-      border-radius: 999px;
-      font-size: 11px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 12px;
-    }
-
-    .banner-content {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    @media (min-width: 768px) {
-      .banner-content {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-      }
-    }
-
-    .banner-text {
-      flex: 1;
-    }
-
-    .banner-title {
-      font-size: 20px;
-      font-weight: 600;
-      color: var(--text-main);
-      margin-bottom: 8px;
-    }
-
-    .banner-description {
-      font-size: 15px;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
-
-    .banner-cta {
-      display: flex;
-      gap: 12px;
-      flex-direction: column;
-    }
-
-    @media (min-width: 768px) {
-      .banner-cta {
-        flex-direction: row;
-        min-width: 200px;
-      }
-    }
-
-    /* Overlay */
-    .job-overlay {
-      position: fixed;
-      inset: 0;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      z-index: 50;
-      padding: 0;
-      overflow-y: auto;
-    }
-
-    .job-overlay[hidden] {
-      display: none;
-    }
-
-    .job-overlay-backdrop {
-      position: fixed;
-      inset: 0;
-      background: rgba(15,23,42,0.45);
-      z-index: 1;
-    }
-
-    .job-overlay-panel {
-      position: relative;
-      margin: 24px auto;
-      width: calc(100% - 32px);
-      max-width: 800px;
-      background: #ffffff;
-      border-radius: 20px;
-      overflow: hidden;
-      max-height: calc(100vh - 48px);
-      display: flex;
-      flex-direction: column;
-      z-index: 2;
-    }
-
-    @media (min-width: 768px) {
-      .job-overlay-panel {
-        width: 100%;
-        max-width: 800px;
-        margin: 40px auto;
-      }
-    }
-
-    .overlay-close-btn {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.2);
-      border: none;
-      color: white;
-      font-size: 24px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 10;
-      transition: background 0.2s;
-    }
-
-    .overlay-close-btn:hover {
-      background: rgba(255,255,255,0.3);
-    }
-
-    .job-overlay-scroll {
-      overflow-y: auto;
-      flex: 1;
-    }
-
-    .job-hero {
-      background: linear-gradient(135deg,#1d4ed8,#2563eb,#60a5fa);
-      padding: 24px;
-      color: white;
-      position: relative;
-    }
-
-    .job-hero-top {
-      margin-bottom: 16px;
-    }
-
-    .verified-pill {
-      background: rgba(16,185,129,0.2);
-      color: #d1fae5;
-      padding: 6px 14px;
-      border-radius: 999px;
-      font-size: 13px;
-      font-weight: 500;
-      display: inline-block;
-    }
-
-    .job-hero-main {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    @media (min-width: 768px) {
-      .job-hero-main {
-        flex-direction: row;
-        align-items: flex-start;
-        justify-content: space-between;
-      }
-    }
-
-    .job-hero-text h2 {
-      font-size: 24px;
-      font-weight: 600;
-      margin-bottom: 8px;
-    }
-
-    .job-hero-text .company {
-      font-size: 15px;
-      color: rgba(255,255,255,0.9);
-      margin-bottom: 12px;
-    }
-
-    .job-hero-metrics {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      font-size: 14px;
-    }
-
-    .job-hero-cta {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    @media (min-width: 768px) {
-      .job-hero-cta {
-        min-width: 260px;
-      }
-    }
-
-    .culture-preview {
-      background: var(--vibe-bg);
-      border-bottom: 1px solid #bfdbfe;
-      padding: 24px;
-    }
-
-    .culture-preview-title {
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--text-main);
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .culture-metrics {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 16px;
-      margin-bottom: 16px;
-    }
-
-    .culture-metric {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .culture-metric-label {
-      font-size: 14px;
-      color: var(--text-muted);
-    }
-
-    .culture-metric-value {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--text-main);
-    }
-
-    .culture-stars {
-      color: #fbbf24;
-      font-size: 16px;
-    }
-
-    .view-full-culture {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      color: var(--brand-blue);
-      font-weight: 500;
-      font-size: 14px;
-      text-decoration: none;
-      margin-top: 8px;
-    }
-
-    .view-full-culture:hover {
-      text-decoration: underline;
-    }
-
-    .job-body {
-      padding: 32px 24px;
-    }
-
-    .job-section {
-      margin-bottom: 32px;
-    }
-
-    .job-section:last-child {
-      margin-bottom: 0;
-    }
-
-    .job-section h3 {
-      font-size: 16px;
-      font-weight: 600;
-      margin-bottom: 12px;
-      color: var(--text-main);
-    }
-
-    .job-section p {
-      color: var(--text-muted);
-      line-height: 1.6;
-      margin-bottom: 8px;
-    }
-
-    .job-section ul {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    .job-section ul li {
-      color: var(--text-muted);
-      padding-left: 24px;
-      position: relative;
-      margin-bottom: 8px;
-      line-height: 1.6;
-    }
-
-    .job-section ul li:before {
-      content: "•";
-      position: absolute;
-      left: 8px;
-      color: var(--brand-blue);
-      font-weight: 600;
-    }
-
-    .job-overlay-sticky {
-      border-top: 1px solid var(--border-subtle);
-      background: white;
-      padding: 16px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
-
-    .job-overlay-sticky span {
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--text-main);
-      flex: 1;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
+    /* SVG Icons */
+    .icon {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
   </style>
 </head>
 <body>
   <div class="page">
+    <!-- Banner Ads -->
+    <section class="banner-ads">
+      <div class="banner-ad">
+        <div class="banner-ad-content">
+          <div class="banner-ad-logo">TC</div>
+          <div class="banner-ad-text">
+            <div class="banner-ad-title">TechCorp Vietnam đang tuyển dụng</div>
+            <div class="banner-ad-subtitle">20+ vị trí Software Engineer, Product Manager, Designer</div>
+            <span class="banner-ad-label">Quảng cáo</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="banner-ad">
+        <div class="banner-ad-content">
+          <div class="banner-ad-logo">VB</div>
+          <div class="banner-ad-text">
+            <div class="banner-ad-title">VietBank tuyển dụng đợt lớn Q1/2026</div>
+            <div class="banner-ad-subtitle">Chương trình Management Trainee - Lương hấp dẫn</div>
+            <span class="banner-ad-label">Quảng cáo</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="banner-ad">
+        <div class="banner-ad-content">
+          <div class="banner-ad-logo">FG</div>
+          <div class="banner-ad-text">
+            <div class="banner-ad-title">FoodGo mở rộng team toàn quốc</div>
+            <div class="banner-ad-subtitle">Sales, Marketing, Operations - Thưởng KPI cao</div>
+            <span class="banner-ad-label">Quảng cáo</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Header -->
     <header class="header-section">
       <div class="breadcrumb">
@@ -892,11 +666,17 @@
       <div class="search-card">
         <div class="search-inputs">
           <div class="input-wrapper">
-            <span class="input-icon">🔍</span>
+            <svg class="input-icon icon" viewBox="0 0 24 24">
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.35-4.35"></path>
+            </svg>
             <input type="text" placeholder="Chức danh, kỹ năng, từ khoá...">
           </div>
           <div class="input-wrapper">
-            <span class="input-icon">📍</span>
+            <svg class="input-icon icon" viewBox="0 0 24 24">
+              <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
             <input type="text" placeholder="Địa điểm (Hà Nội, TP.HCM, Remote...)">
           </div>
           <button class="btn-primary">Tìm việc</button>
@@ -908,7 +688,7 @@
     <section class="filters-section">
       <div class="filter-section-title">Văn hoá & môi trường</div>
       <div class="chip-row">
-        <div class="chip verified-only">✓ Đã xác minh văn hoá</div>
+        <div class="chip verified-only">Đã xác minh văn hoá</div>
         <div class="chip">Vui vẻ & trẻ trung</div>
         <div class="chip active">Kỷ luật & tập trung</div>
         <div class="chip">Gia đình – ấm áp</div>
@@ -926,21 +706,21 @@
     <!-- Jobs List -->
     <section class="jobs-section">
       <!-- Job 1 -->
-      <article class="job-card" data-job-id="job1">
+      <a href="job-detail-1.html" target="_blank" class="job-card">
         <div class="job-main">
           <div class="company-header">
             <div class="company-logo">JT</div>
             <div class="company-info">
               <div class="company-name-row">
                 <span class="company-name">JoyTea Studio</span>
-                <span class="verified-badge">✓ Đã xác minh</span>
+                <span class="verified-badge">Đã xác minh</span>
               </div>
               <div class="company-stats">
                 <span class="recommend-stat">92% nhân viên recommend</span>
                 <span class="dot">•</span>
                 <span>145 người đã xem</span>
                 <span class="dot">•</span>
-                <a href="#" class="view-culture-link" onclick="event.stopPropagation();">Xem văn hoá →</a>
+                <span class="view-culture-link">Xem văn hoá →</span>
               </div>
             </div>
           </div>
@@ -956,13 +736,16 @@
           </div>
 
           <div class="job-salary-row">
-            <span class="salary-pill">💰 18–25 triệu/tháng</span>
+            <span class="salary-pill">18–25 triệu/tháng</span>
             <span class="type-pill">Marketing</span>
           </div>
 
           <div class="job-vibe-section">
             <div class="job-vibe-title">
-              💬 Văn hoá thật từ nhân viên
+              <svg class="vibe-icon" viewBox="0 0 24 24">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+              </svg>
+              Văn hoá thật từ nhân viên
             </div>
             <ul class="job-vibe">
               <li>Không khí: trẻ, vui, ít drama. Team hay mua trà sữa cho nhau khi ai đó "chiến thắng" trong campaign.</li>
@@ -972,151 +755,34 @@
           </div>
 
           <div class="job-badges">
-            <span class="badge badge-blue">Minh bạch lương</span>
+            <span class="badge">Minh bạch lương</span>
             <span class="badge">Không OT cuối tuần</span>
             <span class="badge">Onboarding có mentor</span>
           </div>
         </div>
 
         <div class="job-actions">
-          <button class="btn-secondary job-detail-btn">Xem chi tiết</button>
-          <button class="btn-primary job-apply-btn">Ứng tuyển</button>
+          <button class="btn-secondary">Xem chi tiết</button>
+          <button class="btn-primary">Ứng tuyển</button>
         </div>
-
-        <div class="job-detail-content" hidden>
-          <div class="job-hero">
-            <button class="overlay-close-btn">×</button>
-            <div class="job-hero-top">
-              <span class="verified-pill">✓ Đã xác minh văn hoá</span>
-            </div>
-            <div class="job-hero-main">
-              <div class="job-hero-text">
-                <h2>Senior Marketing Executive</h2>
-                <p class="company">JoyTea Studio · Hà Nội · Toàn thời gian</p>
-                <div class="job-hero-metrics">
-                  <span>💰 18–25 triệu/tháng</span>
-                  <span>👥 Team 7 người</span>
-                  <span>📅 Gia nhập trong 1–2 tháng</span>
-                </div>
-              </div>
-              <div class="job-hero-cta">
-                <button class="btn-culture">📊 Xem đầy đủ văn hoá công ty</button>
-                <button class="btn-primary">Ứng tuyển / Trò chuyện với HR</button>
-                <button class="btn-ghost">Lưu job</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="culture-preview">
-            <div class="culture-preview-title">🏢 Tổng quan văn hoá JoyTea Studio</div>
-            <div class="culture-metrics">
-              <div class="culture-metric">
-                <span class="culture-metric-label">Work-life balance:</span>
-                <span class="culture-stars">★★★★☆</span>
-                <span class="culture-metric-value">4/5</span>
-              </div>
-              <div class="culture-metric">
-                <span class="culture-metric-label">Cơ hội phát triển:</span>
-                <span class="culture-stars">★★★★★</span>
-                <span class="culture-metric-value">4.5/5</span>
-              </div>
-              <div class="culture-metric">
-                <span class="culture-metric-label">Minh bạch:</span>
-                <span class="culture-stars">★★★★★</span>
-                <span class="culture-metric-value">5/5</span>
-              </div>
-              <div class="culture-metric">
-                <span class="culture-metric-label">Không khí làm việc:</span>
-                <span class="culture-metric-value">Trẻ, năng động, ít drama</span>
-              </div>
-            </div>
-            <a href="#" class="view-full-culture" onclick="event.preventDefault();">Xem đầy đủ văn hoá & đánh giá từ 12 nhân viên →</a>
-          </div>
-
-          <div class="job-body">
-            <section class="job-section">
-              <h3>💡 Gợi ý từ JoyWork</h3>
-              <p style="color: var(--brand-blue); font-weight: 500;">Bạn nên đọc kỹ phần "Văn hoá & môi trường làm việc" bên dưới để hiểu rõ cách làm việc thực tế tại JoyTea Studio trước khi quyết định ứng tuyển.</p>
-            </section>
-
-            <section class="job-section">
-              <h3>Về công ty</h3>
-              <p>JoyTea Studio là thương hiệu trà sữa trẻ, với 5 cửa hàng tại Hà Nội. Chúng mình phục vụ Gen Z và những người yêu thích đồ uống healthy. Team marketing 7 người, trực thuộc Giám đốc Marketing, làm việc linh hoạt nhưng có KPI rõ ràng.</p>
-              <p>Khách hàng của chúng mình chủ yếu là sinh viên và nhân viên văn phòng 22–30 tuổi. Mục tiêu 2025 là mở thêm 3 cửa hàng và tăng brand awareness qua social media.</p>
-            </section>
-
-            <section class="job-section">
-              <h3>Văn hoá & môi trường làm việc</h3>
-              <ul>
-                <li>Không khí trẻ trung, thẳng thắn nhưng tôn trọng. Ai cũng được khuyến khích đóng góp ý tưởng.</li>
-                <li>Không OT quá 2 buổi/tuần, nếu OT có phụ cấp rõ ràng theo giờ.</li>
-                <li>1-1 với leader mỗi tháng, có lộ trình phát triển cụ thể. Review lương mỗi 6 tháng.</li>
-                <li>Team building nhỏ 1 lần/quý, thường đi ăn hoặc picnic. Du lịch lớn 1 lần/năm.</li>
-              </ul>
-            </section>
-
-            <section class="job-section">
-              <h3>Mô tả công việc</h3>
-              <ul>
-                <li>Lên kế hoạch và triển khai các chiến dịch marketing cho thương hiệu JoyTea trên Facebook, Instagram, TikTok.</li>
-                <li>Quản lý performance ads, theo dõi chỉ số ROAS, CPM, CTR. Đề xuất điều chỉnh ngân sách hàng tuần.</li>
-                <li>Phối hợp với team thiết kế & content để ra mắt campaign mới mỗi quý (new product launch, seasonal promo).</li>
-                <li>Báo cáo kết quả chiến dịch hàng tháng cho Giám đốc Marketing, đề xuất tối ưu.</li>
-                <li>Nghiên cứu xu hướng F&B, đối thủ, để đưa ra insight cho chiến lược marketing.</li>
-              </ul>
-            </section>
-
-            <section class="job-section">
-              <h3>Yêu cầu</h3>
-              <ul>
-                <li>Tối thiểu 2 năm kinh nghiệm ở vị trí Marketing Executive hoặc tương đương, ưu tiên trong ngành F&B hoặc retail.</li>
-                <li>Đã từng chạy ads trên Facebook/Instagram/TikTok hoặc làm việc với agency. Biết dùng Facebook Business Manager, Google Analytics.</li>
-                <li>Am hiểu insight khách hàng Gen Z, biết cách viết content thu hút trên social.</li>
-                <li>Tính cách: chủ động, chịu khó thử nghiệm, thích làm việc trong môi trường trẻ, năng động.</li>
-                <li>Cộng điểm: Biết thiết kế cơ bản (Canva/Figma), hoặc có kinh nghiệm làm influencer marketing.</li>
-              </ul>
-            </section>
-
-            <section class="job-section">
-              <h3>Quyền lợi</h3>
-              <ul>
-                <li>Lương 18–25 triệu/tháng tuỳ năng lực, review mỗi 6 tháng dựa trên KPI.</li>
-                <li>Thưởng theo kết quả campaign (bonus khi đạt/vượt target ROAS).</li>
-                <li>Bảo hiểm đầy đủ theo luật, du lịch 1–2 lần/năm.</li>
-                <li>Được uống free đồ uống JoyTea mỗi ngày. Discount 50% cho bạn bè.</li>
-                <li>Môi trường trẻ, cơ hội thăng tiến nhanh khi công ty mở rộng.</li>
-              </ul>
-            </section>
-
-            <section class="job-section">
-              <h3>Thông tin khác</h3>
-              <p>Thời gian làm việc: Thứ 2–Thứ 6 (9h–18h), thỉnh thoảng có chiến dịch cần làm thêm buổi tối hoặc cuối tuần nhưng sẽ được báo trước và có phụ cấp. Văn phòng tại quận Hoàn Kiếm, Hà Nội, gần nhiều quán ăn và tiện ích.</p>
-            </section>
-          </div>
-
-          <div class="job-overlay-sticky">
-            <span>Senior Marketing Executive · JoyTea Studio</span>
-            <button class="btn-primary">Ứng tuyển ngay</button>
-          </div>
-        </div>
-      </article>
+      </a>
 
       <!-- Job 2 -->
-      <article class="job-card" data-job-id="job2">
+      <a href="job-detail-2.html" target="_blank" class="job-card">
         <div class="job-main">
           <div class="company-header">
             <div class="company-logo">AN</div>
             <div class="company-info">
               <div class="company-name-row">
                 <span class="company-name">An Nhiên Books</span>
-                <span class="verified-badge">✓ Đã xác minh</span>
+                <span class="verified-badge">Đã xác minh</span>
               </div>
               <div class="company-stats">
                 <span class="recommend-stat">88% nhân viên recommend</span>
                 <span class="dot">•</span>
                 <span>89 người đã xem</span>
                 <span class="dot">•</span>
-                <a href="#" class="view-culture-link" onclick="event.stopPropagation();">Xem văn hoá →</a>
+                <span class="view-culture-link">Xem văn hoá →</span>
               </div>
             </div>
           </div>
@@ -1132,13 +798,16 @@
           </div>
 
           <div class="job-salary-row">
-            <span class="salary-pill">💰 12–18 triệu/tháng</span>
+            <span class="salary-pill">12–18 triệu/tháng</span>
             <span class="type-pill">Content & Media</span>
           </div>
 
           <div class="job-vibe-section">
             <div class="job-vibe-title">
-              💬 Văn hoá thật từ nhân viên
+              <svg class="vibe-icon" viewBox="0 0 24 24">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+              </svg>
+              Văn hoá thật từ nhân viên
             </div>
             <ul class="job-vibe">
               <li>Văn phòng nhỏ nhưng ấm cúng, có góc đọc sách riêng. Sếp là "mọt sách" thật sự, rất tôn trọng writer.</li>
@@ -1148,155 +817,34 @@
           </div>
 
           <div class="job-badges">
-            <span class="badge badge-blue">Môi trường văn học</span>
+            <span class="badge">Môi trường văn học</span>
             <span class="badge">Hybrid 2 ngày WFH</span>
             <span class="badge">Sách miễn phí</span>
           </div>
         </div>
 
         <div class="job-actions">
-          <button class="btn-secondary job-detail-btn">Xem chi tiết</button>
-          <button class="btn-primary job-apply-btn">Ứng tuyển</button>
+          <button class="btn-secondary">Xem chi tiết</button>
+          <button class="btn-primary">Ứng tuyển</button>
         </div>
-
-        <div class="job-detail-content" hidden>
-          <div class="job-hero">
-            <button class="overlay-close-btn">×</button>
-            <div class="job-hero-top">
-              <span class="verified-pill">✓ Đã xác minh văn hoá</span>
-            </div>
-            <div class="job-hero-main">
-              <div class="job-hero-text">
-                <h2>Content Writer</h2>
-                <p class="company">An Nhiên Books · Hà Nội (Hybrid) · Toàn thời gian</p>
-                <div class="job-hero-metrics">
-                  <span>💰 12–18 triệu/tháng</span>
-                  <span>👥 Team 4 người</span>
-                  <span>📅 Bắt đầu tháng 1/2026</span>
-                </div>
-              </div>
-              <div class="job-hero-cta">
-                <button class="btn-culture">📊 Xem đầy đủ văn hoá công ty</button>
-                <button class="btn-primary">Ứng tuyển / Trò chuyện với HR</button>
-                <button class="btn-ghost">Lưu job</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="culture-preview">
-            <div class="culture-preview-title">🏢 Tổng quan văn hoá An Nhiên Books</div>
-            <div class="culture-metrics">
-              <div class="culture-metric">
-                <span class="culture-metric-label">Work-life balance:</span>
-                <span class="culture-stars">★★★★★</span>
-                <span class="culture-metric-value">5/5</span>
-              </div>
-              <div class="culture-metric">
-                <span class="culture-metric-label">Cơ hội phát triển:</span>
-                <span class="culture-stars">★★★★☆</span>
-                <span class="culture-metric-value">4/5</span>
-              </div>
-              <div class="culture-metric">
-                <span class="culture-metric-label">Minh bạch:</span>
-                <span class="culture-stars">★★★★☆</span>
-                <span class="culture-metric-value">4.5/5</span>
-              </div>
-              <div class="culture-metric">
-                <span class="culture-metric-label">Không khí làm việc:</span>
-                <span class="culture-metric-value">Yên tĩnh, văn học, sâu lắng</span>
-              </div>
-            </div>
-            <a href="#" class="view-full-culture" onclick="event.preventDefault();">Xem đầy đủ văn hoá & đánh giá từ 8 nhân viên →</a>
-          </div>
-
-          <div class="job-body">
-            <section class="job-section">
-              <h3>💡 Gợi ý từ JoyWork</h3>
-              <p style="color: var(--brand-blue); font-weight: 500;">Nếu bạn yêu thích văn học và muốn làm việc trong môi trường yên tĩnh, sâu lắng, hãy đọc kỹ phần văn hoá bên dưới.</p>
-            </section>
-
-            <section class="job-section">
-              <h3>Về công ty</h3>
-              <p>An Nhiên Books là nhà sách độc lập chuyên về văn học, triết học, và sách thiếu nhi chất lượng. Chúng mình có 2 cửa hàng tại Hà Nội và 1 kênh online đang phát triển mạnh.</p>
-            </section>
-
-            <section class="job-section">
-              <h3>Văn hoá & môi trường làm việc</h3>
-              <ul>
-                <li>Văn phòng nhỏ, ấm cúng, có góc đọc sách riêng với sofa và cà phê miễn phí. Được mượn sách về đọc.</li>
-                <li>Làm việc linh hoạt: 2 ngày/tuần WFH, 3 ngày tại văn phòng. Giờ giấc thoải mái miễn hoàn thành công việc.</li>
-                <li>Không có văn hoá deadline gấp gáp. Được dành thời gian nghiên cứu, đọc sách trước khi viết content.</li>
-                <li>Book club nội bộ mỗi tháng, được giảm giá sách 30%, thỉnh thoảng có author talk riêng cho team.</li>
-              </ul>
-            </section>
-
-            <section class="job-section">
-              <h3>Mô tả công việc</h3>
-              <ul>
-                <li>Viết content giới thiệu sách mới, review sách, phỏng vấn tác giả cho website và social media.</li>
-                <li>Lên kế hoạch content hàng tháng, phối hợp với team marketing để đảm bảo đồng bộ.</li>
-                <li>Viết email marketing gửi cho khách hàng thân thiết (newsletter 2 lần/tháng).</li>
-              </ul>
-            </section>
-
-            <section class="job-section">
-              <h3>Yêu cầu</h3>
-              <ul>
-                <li>Yêu thích đọc sách, có kiến thức rộng về văn học Việt Nam và thế giới.</li>
-                <li>Có ít nhất 1 năm kinh nghiệm viết content (blog, social media, hoặc báo chí).</li>
-                <li>Viết văn tốt, giọng văn mộc mạc, chân thành, không sáo rỗng.</li>
-              </ul>
-            </section>
-
-            <section class="job-section">
-              <h3>Quyền lợi</h3>
-              <ul>
-                <li>Lương 12–18 triệu/tháng tuỳ kinh nghiệm, review mỗi năm.</li>
-                <li>Được mua sách giảm giá 30%, mượn sách về đọc miễn phí.</li>
-                <li>Làm việc hybrid 2 ngày WFH/tuần, giờ giấc linh hoạt.</li>
-              </ul>
-            </section>
-          </div>
-
-          <div class="job-overlay-sticky">
-            <span>Content Writer · An Nhiên Books</span>
-            <button class="btn-primary">Ứng tuyển ngay</button>
-          </div>
-        </div>
-      </article>
-
-      <!-- BANNER 1 -->
-      <div class="banner-card">
-        <span class="banner-label">Quảng cáo</span>
-        <div class="banner-content">
-          <div class="banner-text">
-            <h3 class="banner-title">Bạn là công ty đang tuyển dụng?</h3>
-            <p class="banner-description">
-              Đăng tin tuyển dụng trên JoyWork để tiếp cận ứng viên chất lượng – những người thật sự quan tâm đến văn hoá công ty. Gói từ 2 triệu/tháng.
-            </p>
-          </div>
-          <div class="banner-cta">
-            <button class="btn-primary">Đăng tin tuyển dụng</button>
-          </div>
-        </div>
-      </div>
+      </a>
 
       <!-- Job 3 -->
-      <article class="job-card" data-job-id="job3">
+      <a href="job-detail-3.html" target="_blank" class="job-card">
         <div class="job-main">
           <div class="company-header">
             <div class="company-logo">GL</div>
             <div class="company-info">
               <div class="company-name-row">
                 <span class="company-name">Gạo Lành Mart</span>
-                <span class="verified-badge">✓ Đã xác minh</span>
+                <span class="verified-badge">Đã xác minh</span>
               </div>
               <div class="company-stats">
                 <span class="recommend-stat">85% nhân viên recommend</span>
                 <span class="dot">•</span>
                 <span>67 người đã xem</span>
                 <span class="dot">•</span>
-                <a href="#" class="view-culture-link" onclick="event.stopPropagation();">Xem văn hoá →</a>
+                <span class="view-culture-link">Xem văn hoá →</span>
               </div>
             </div>
           </div>
@@ -1312,13 +860,16 @@
           </div>
 
           <div class="job-salary-row">
-            <span class="salary-pill">💰 15–20 triệu + hoa hồng</span>
+            <span class="salary-pill">15–20 triệu + hoa hồng</span>
             <span class="type-pill">Sales B2B</span>
           </div>
 
           <div class="job-vibe-section">
             <div class="job-vibe-title">
-              💬 Văn hoá thật từ nhân viên
+              <svg class="vibe-icon" viewBox="0 0 24 24">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+              </svg>
+              Văn hoá thật từ nhân viên
             </div>
             <ul class="job-vibe">
               <li>Công ty gia đình nhưng chuyên nghiệp, giá trị cốt lõi là "chất lượng sản phẩm". Sếp hay khuyến khích học hỏi.</li>
@@ -1329,78 +880,33 @@
 
           <div class="job-badges">
             <span class="badge">Hoa hồng hấp dẫn</span>
-            <span class="badge badge-blue">Đào tạo bài bản</span>
+            <span class="badge">Đào tạo bài bản</span>
             <span class="badge">Sản phẩm chất lượng</span>
           </div>
         </div>
 
         <div class="job-actions">
-          <button class="btn-secondary job-detail-btn">Xem chi tiết</button>
-          <button class="btn-primary job-apply-btn">Ứng tuyển</button>
+          <button class="btn-secondary">Xem chi tiết</button>
+          <button class="btn-primary">Ứng tuyển</button>
         </div>
-
-        <div class="job-detail-content" hidden>
-          <div class="job-hero">
-            <button class="overlay-close-btn">×</button>
-            <div class="job-hero-top">
-              <span class="verified-pill">✓ Đã xác minh văn hoá</span>
-            </div>
-            <div class="job-hero-main">
-              <div class="job-hero-text">
-                <h2>Nhân viên Kinh doanh B2B</h2>
-                <p class="company">Gạo Lành Mart · TP.HCM · Toàn thời gian</p>
-                <div class="job-hero-metrics">
-                  <span>💰 15–20tr + hoa hồng</span>
-                  <span>👥 Team 10 người</span>
-                </div>
-              </div>
-              <div class="job-hero-cta">
-                <button class="btn-culture">📊 Xem đầy đủ văn hoá công ty</button>
-                <button class="btn-primary">Ứng tuyển</button>
-                <button class="btn-ghost">Lưu job</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="job-body">
-            <section class="job-section">
-              <h3>Về công ty</h3>
-              <p>Gạo Lành Mart chuyên cung cấp gạo sạch, rau củ organic và nông sản chất lượng cao cho khách hàng B2B.</p>
-            </section>
-
-            <section class="job-section">
-              <h3>Văn hoá & môi trường làm việc</h3>
-              <ul>
-                <li>Công ty gia đình 15 năm tuổi, nhưng quy trình làm việc chuyên nghiệp.</li>
-                <li>Không áp lực doanh số phi lý. Target được đặt dựa trên phân tích thị trường.</li>
-                <li>Team sales 10 người, thân thiện, sẵn sàng chia sẻ tip bán hàng.</li>
-              </ul>
-            </section>
-          </div>
-
-          <div class="job-overlay-sticky">
-            <span>Nhân viên Kinh doanh B2B · Gạo Lành Mart</span>
-            <button class="btn-primary">Ứng tuyển ngay</button>
-          </div>
-        </div>
-      </article>
+      </a>
 
       <!-- Job 4 -->
-      <article class="job-card" data-job-id="job4">
+      <a href="job-detail-4.html" target="_blank" class="job-card">
         <div class="job-main">
           <div class="company-header">
             <div class="company-logo">CB</div>
             <div class="company-info">
               <div class="company-name-row">
                 <span class="company-name">CloudBase Tech</span>
-                <span class="verified-badge">✓ Đã xác minh</span>
+                <span class="verified-badge">Đã xác minh</span>
               </div>
               <div class="company-stats">
                 <span class="recommend-stat">95% nhân viên recommend</span>
                 <span class="dot">•</span>
                 <span>203 người đã xem</span>
                 <span class="dot">•</span>
-                <a href="#" class="view-culture-link" onclick="event.stopPropagation();">Xem văn hoá →</a>
+                <span class="view-culture-link">Xem văn hoá →</span>
               </div>
             </div>
           </div>
@@ -1416,13 +922,16 @@
           </div>
 
           <div class="job-salary-row">
-            <span class="salary-pill">💰 25–35 triệu/tháng</span>
+            <span class="salary-pill">25–35 triệu/tháng</span>
             <span class="type-pill">Engineering</span>
           </div>
 
           <div class="job-vibe-section">
             <div class="job-vibe-title">
-              💬 Văn hoá thật từ nhân viên
+              <svg class="vibe-icon" viewBox="0 0 24 24">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+              </svg>
+              Văn hoá thật từ nhân viên
             </div>
             <ul class="job-vibe">
               <li>Full remote, làm việc async. Daily standup 15 phút qua Slack. Tài liệu rõ ràng, ít meeting vô bổ.</li>
@@ -1432,96 +941,34 @@
           </div>
 
           <div class="job-badges">
-            <span class="badge badge-blue">Full remote</span>
+            <span class="badge">Full remote</span>
             <span class="badge">Tech stack hiện đại</span>
             <span class="badge">Code review nghiêm túc</span>
           </div>
         </div>
 
         <div class="job-actions">
-          <button class="btn-secondary job-detail-btn">Xem chi tiết</button>
-          <button class="btn-primary job-apply-btn">Ứng tuyển</button>
+          <button class="btn-secondary">Xem chi tiết</button>
+          <button class="btn-primary">Ứng tuyển</button>
         </div>
-
-        <div class="job-detail-content" hidden>
-          <div class="job-hero">
-            <button class="overlay-close-btn">×</button>
-            <div class="job-hero-top">
-              <span class="verified-pill">✓ Đã xác minh văn hoá</span>
-            </div>
-            <div class="job-hero-main">
-              <div class="job-hero-text">
-                <h2>Backend Developer (Node.js)</h2>
-                <p class="company">CloudBase Tech · Remote (VN) · Toàn thời gian</p>
-                <div class="job-hero-metrics">
-                  <span>💰 25–35 triệu/tháng</span>
-                  <span>👥 Team 12 devs</span>
-                </div>
-              </div>
-              <div class="job-hero-cta">
-                <button class="btn-culture">📊 Xem đầy đủ văn hoá công ty</button>
-                <button class="btn-primary">Ứng tuyển</button>
-                <button class="btn-ghost">Lưu job</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="job-body">
-            <section class="job-section">
-              <h3>Về công ty</h3>
-              <p>CloudBase Tech phát triển SaaS platform giúp các doanh nghiệp SME quản lý dữ liệu khách hàng.</p>
-            </section>
-
-            <section class="job-section">
-              <h3>Văn hoá & môi trường làm việc</h3>
-              <ul>
-                <li>Full remote, làm việc async. Meeting chỉ khi cần thiết.</li>
-                <li>Tài liệu kỹ thuật rõ ràng, code review nghiêm túc.</li>
-                <li>Senior có kinh nghiệm 7–10 năm, sẵn sàng mentor.</li>
-              </ul>
-            </section>
-          </div>
-
-          <div class="job-overlay-sticky">
-            <span>Backend Developer · CloudBase Tech</span>
-            <button class="btn-primary">Ứng tuyển ngay</button>
-          </div>
-        </div>
-      </article>
-
-      <!-- BANNER 2 -->
-      <div class="banner-card">
-        <span class="banner-label">Tài trợ</span>
-        <div class="banner-content">
-          <div class="banner-text">
-            <h3 class="banner-title">🎯 Tuyển dụng thông minh với JoyWork Premium</h3>
-            <p class="banner-description">
-              Hiển thị ưu tiên trong kết quả tìm kiếm, được đề xuất cho ứng viên phù hợp, và có huy hiệu "Top Employer". Tăng 3x lượng ứng tuyển chất lượng.
-            </p>
-          </div>
-          <div class="banner-cta">
-            <button class="btn-primary">Tìm hiểu thêm</button>
-            <button class="btn-secondary">Xem demo</button>
-          </div>
-        </div>
-      </div>
+      </a>
 
       <!-- Job 5 -->
-      <article class="job-card" data-job-id="job5">
+      <a href="job-detail-5.html" target="_blank" class="job-card">
         <div class="job-main">
           <div class="company-header">
             <div class="company-logo">NM</div>
             <div class="company-info">
               <div class="company-name-row">
                 <span class="company-name">Nhà Mơ Education</span>
-                <span class="verified-badge">✓ Đã xác minh</span>
+                <span class="verified-badge">Đã xác minh</span>
               </div>
               <div class="company-stats">
                 <span class="recommend-stat">90% nhân viên recommend</span>
                 <span class="dot">•</span>
                 <span>112 người đã xem</span>
                 <span class="dot">•</span>
-                <a href="#" class="view-culture-link" onclick="event.stopPropagation();">Xem văn hoá →</a>
+                <span class="view-culture-link">Xem văn hoá →</span>
               </div>
             </div>
           </div>
@@ -1537,13 +984,16 @@
           </div>
 
           <div class="job-salary-row">
-            <span class="salary-pill">💰 15–22 triệu/tháng</span>
+            <span class="salary-pill">15–22 triệu/tháng</span>
             <span class="type-pill">Giáo dục</span>
           </div>
 
           <div class="job-vibe-section">
             <div class="job-vibe-title">
-              💬 Văn hoá thật từ nhân viên
+              <svg class="vibe-icon" viewBox="0 0 24 24">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+              </svg>
+              Văn hoá thật từ nhân viên
             </div>
             <ul class="job-vibe">
               <li>Trường tư thục nhỏ, tập trung phát triển tư duy hơn là học vẹt. Học sinh 20–25 em/lớp, được quan tâm kỹ.</li>
@@ -1553,79 +1003,34 @@
           </div>
 
           <div class="job-badges">
-            <span class="badge badge-blue">Lớp học nhỏ</span>
+            <span class="badge">Lớp học nhỏ</span>
             <span class="badge">Phương pháp mới</span>
             <span class="badge">Đào tạo nghiệp vụ</span>
           </div>
         </div>
 
         <div class="job-actions">
-          <button class="btn-secondary job-detail-btn">Xem chi tiết</button>
-          <button class="btn-primary job-apply-btn">Ứng tuyển</button>
+          <button class="btn-secondary">Xem chi tiết</button>
+          <button class="btn-primary">Ứng tuyển</button>
         </div>
+      </a>
 
-        <div class="job-detail-content" hidden>
-          <div class="job-hero">
-            <button class="overlay-close-btn">×</button>
-            <div class="job-hero-top">
-              <span class="verified-pill">✓ Đã xác minh văn hoá</span>
-            </div>
-            <div class="job-hero-main">
-              <div class="job-hero-text">
-                <h2>Giáo viên Toán THCS</h2>
-                <p class="company">Nhà Mơ Education · Hà Nội · Toàn thời gian</p>
-                <div class="job-hero-metrics">
-                  <span>💰 15–22 triệu/tháng</span>
-                  <span>👥 20–25 HS/lớp</span>
-                </div>
-              </div>
-              <div class="job-hero-cta">
-                <button class="btn-culture">📊 Xem đầy đủ văn hoá công ty</button>
-                <button class="btn-primary">Ứng tuyển</button>
-                <button class="btn-ghost">Lưu job</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="job-body">
-            <section class="job-section">
-              <h3>Về trường học</h3>
-              <p>Nhà Mơ Education là trường tư thục THCS, với 6 lớp. Trường áp dụng phương pháp giảng dạy tích cực.</p>
-            </section>
-
-            <section class="job-section">
-              <h3>Văn hoá & môi trường làm việc</h3>
-              <ul>
-                <li>Lớp học nhỏ 20–25 học sinh, giáo viên có thời gian quan tâm từng em.</li>
-                <li>Không áp lực thành tích ảo. Trọng tâm là trẻ hiểu bài, tư duy được.</li>
-                <li>Workshop nội bộ mỗi tháng về phương pháp giảng dạy.</li>
-              </ul>
-            </section>
-          </div>
-
-          <div class="job-overlay-sticky">
-            <span>Giáo viên Toán THCS · Nhà Mơ Education</span>
-            <button class="btn-primary">Ứng tuyển ngay</button>
-          </div>
-        </div>
-      </article>
-
-      <!-- Job 6 & 7 shortened for brevity -->
-      <article class="job-card" data-job-id="job6">
+      <!-- Job 6 -->
+      <a href="job-detail-6.html" target="_blank" class="job-card">
         <div class="job-main">
           <div class="company-header">
             <div class="company-logo">CH</div>
             <div class="company-info">
               <div class="company-name-row">
                 <span class="company-name">Cozy Home Decor</span>
-                <span class="verified-badge">✓ Đã xác minh</span>
+                <span class="verified-badge">Đã xác minh</span>
               </div>
               <div class="company-stats">
                 <span class="recommend-stat">93% nhân viên recommend</span>
                 <span class="dot">•</span>
                 <span>156 người đã xem</span>
                 <span class="dot">•</span>
-                <a href="#" class="view-culture-link" onclick="event.stopPropagation();">Xem văn hoá →</a>
+                <span class="view-culture-link">Xem văn hoá →</span>
               </div>
             </div>
           </div>
@@ -1641,13 +1046,16 @@
           </div>
 
           <div class="job-salary-row">
-            <span class="salary-pill">💰 14–20 triệu/tháng</span>
+            <span class="salary-pill">14–20 triệu/tháng</span>
             <span class="type-pill">Design</span>
           </div>
 
           <div class="job-vibe-section">
             <div class="job-vibe-title">
-              💬 Văn hoá thật từ nhân viên
+              <svg class="vibe-icon" viewBox="0 0 24 24">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+              </svg>
+              Văn hoá thật từ nhân viên
             </div>
             <ul class="job-vibe">
               <li>Văn phòng thiết kế đẹp, nhiều cây xanh, ánh sáng tự nhiên. Được làm việc với sản phẩm nội thất cao cấp.</li>
@@ -1657,65 +1065,34 @@
           </div>
 
           <div class="job-badges">
-            <span class="badge badge-blue">Aesthetic workplace</span>
+            <span class="badge">Aesthetic workplace</span>
             <span class="badge">Brand focus</span>
             <span class="badge">Portfolio đẹp</span>
           </div>
         </div>
 
         <div class="job-actions">
-          <button class="btn-secondary job-detail-btn">Xem chi tiết</button>
-          <button class="btn-primary job-apply-btn">Ứng tuyển</button>
+          <button class="btn-secondary">Xem chi tiết</button>
+          <button class="btn-primary">Ứng tuyển</button>
         </div>
+      </a>
 
-        <div class="job-detail-content" hidden>
-          <div class="job-hero">
-            <button class="overlay-close-btn">×</button>
-            <div class="job-hero-top">
-              <span class="verified-pill">✓ Đã xác minh văn hoá</span>
-            </div>
-            <div class="job-hero-main">
-              <div class="job-hero-text">
-                <h2>Graphic Designer</h2>
-                <p class="company">Cozy Home Decor · Hà Nội · Toàn thời gian</p>
-              </div>
-              <div class="job-hero-cta">
-                <button class="btn-culture">📊 Xem đầy đủ văn hoá công ty</button>
-                <button class="btn-primary">Ứng tuyển</button>
-                <button class="btn-ghost">Lưu job</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="job-body">
-            <section class="job-section">
-              <h3>Về công ty</h3>
-              <p>Cozy Home Decor là thương hiệu nội thất theo phong cách Scandinavian.</p>
-            </section>
-          </div>
-
-          <div class="job-overlay-sticky">
-            <span>Graphic Designer · Cozy Home Decor</span>
-            <button class="btn-primary">Ứng tuyển ngay</button>
-          </div>
-        </div>
-      </article>
-
-      <article class="job-card" data-job-id="job7">
+      <!-- Job 7 -->
+      <a href="job-detail-7.html" target="_blank" class="job-card">
         <div class="job-main">
           <div class="company-header">
             <div class="company-logo">XL</div>
             <div class="company-info">
               <div class="company-name-row">
                 <span class="company-name">Xanh Lá Media</span>
-                <span class="verified-badge">✓ Đã xác minh</span>
+                <span class="verified-badge">Đã xác minh</span>
               </div>
               <div class="company-stats">
                 <span class="recommend-stat">87% nhân viên recommend</span>
                 <span class="dot">•</span>
                 <span>178 người đã xem</span>
                 <span class="dot">•</span>
-                <a href="#" class="view-culture-link" onclick="event.stopPropagation();">Xem văn hoá →</a>
+                <span class="view-culture-link">Xem văn hoá →</span>
               </div>
             </div>
           </div>
@@ -1731,13 +1108,16 @@
           </div>
 
           <div class="job-salary-row">
-            <span class="salary-pill">💰 16–24 triệu/tháng</span>
+            <span class="salary-pill">16–24 triệu/tháng</span>
             <span class="type-pill">Account Management</span>
           </div>
 
           <div class="job-vibe-section">
             <div class="job-vibe-title">
-              💬 Văn hoá thật từ nhân viên
+              <svg class="vibe-icon" viewBox="0 0 24 24">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+              </svg>
+              Văn hoá thật từ nhân viên
             </div>
             <ul class="job-vibe">
               <li>Agency 30 người, client từ F&B, fashion, tech. Không làm việc với client "khó tính vô lý", lựa chọn project kỹ.</li>
@@ -1747,103 +1127,18 @@
           </div>
 
           <div class="job-badges">
-            <span class="badge badge-blue">Dự án đa dạng</span>
+            <span class="badge">Dự án đa dạng</span>
             <span class="badge">Client chất lượng</span>
             <span class="badge">Agency uy tín</span>
           </div>
         </div>
 
         <div class="job-actions">
-          <button class="btn-secondary job-detail-btn">Xem chi tiết</button>
-          <button class="btn-primary job-apply-btn">Ứng tuyển</button>
+          <button class="btn-secondary">Xem chi tiết</button>
+          <button class="btn-primary">Ứng tuyển</button>
         </div>
-
-        <div class="job-detail-content" hidden>
-          <div class="job-hero">
-            <button class="overlay-close-btn">×</button>
-            <div class="job-hero-top">
-              <span class="verified-pill">✓ Đã xác minh văn hoá</span>
-            </div>
-            <div class="job-hero-main">
-              <div class="job-hero-text">
-                <h2>Account Executive</h2>
-                <p class="company">Xanh Lá Media · TP.HCM · Toàn thời gian</p>
-              </div>
-              <div class="job-hero-cta">
-                <button class="btn-culture">📊 Xem đầy đủ văn hoá công ty</button>
-                <button class="btn-primary">Ứng tuyển</button>
-                <button class="btn-ghost">Lưu job</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="job-body">
-            <section class="job-section">
-              <h3>Về agency</h3>
-              <p>Xanh Lá Media là agency marketing & branding với 30 người.</p>
-            </section>
-          </div>
-
-          <div class="job-overlay-sticky">
-            <span>Account Executive · Xanh Lá Media</span>
-            <button class="btn-primary">Ứng tuyển ngay</button>
-          </div>
-        </div>
-      </article>
+      </a>
     </section>
   </div>
-
-  <!-- Overlay -->
-  <div class="job-overlay" hidden>
-    <div class="job-overlay-backdrop"></div>
-    <div class="job-overlay-panel">
-      <div class="job-overlay-scroll">
-        <!-- Content will be injected here -->
-      </div>
-    </div>
-  </div>
-
-  <script>
-    // Open overlay
-    document.querySelectorAll('.job-card, .job-detail-btn, .job-apply-btn').forEach(el => {
-      el.addEventListener('click', function(e) {
-        e.stopPropagation();
-        const card = this.closest('.job-card');
-        const detailContent = card.querySelector('.job-detail-content');
-        const overlay = document.querySelector('.job-overlay');
-        const overlayScroll = overlay.querySelector('.job-overlay-scroll');
-        
-        overlayScroll.innerHTML = detailContent.innerHTML;
-        overlay.removeAttribute('hidden');
-        document.body.style.overflow = 'hidden';
-
-        const closeBtn = overlay.querySelector('.overlay-close-btn');
-        if (closeBtn) {
-          closeBtn.addEventListener('click', closeOverlay);
-        }
-      });
-    });
-
-    function closeOverlay(e) {
-      e.stopPropagation();
-      const overlay = document.querySelector('.job-overlay');
-      overlay.setAttribute('hidden', '');
-      document.body.style.overflow = '';
-    }
-
-    document.querySelector('.job-overlay-backdrop').addEventListener('click', closeOverlay);
-
-    document.addEventListener('DOMContentLoaded', function() {
-      const overlay = document.querySelector('.job-overlay');
-      if (overlay) {
-        const panel = overlay.querySelector('.job-overlay-panel');
-        if (panel) {
-          panel.addEventListener('click', function(e) {
-            e.stopPropagation();
-          });
-        }
-      }
-    });
-  </script>
 </body>
 </html>
